@@ -1,0 +1,2769 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>N N PERFECT BEAUTY | Luxury Salon & Spa Studio</title>
+  <meta name="description" content="Experience bespoke beauty, luxury hair styling, rejuvenating facials, and bridal makeovers at N N PERFECT BEAUTY. Book your personalized appointment today.">
+  
+  <!-- Google Fonts: Cormorant Garamond (Editorial Serif) & Plus Jakarta Sans (Clean Modern Sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome for Premium Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              ivory: '#FAF8F5',
+              champagne: '#E3C896',
+              gold: '#C5A059',
+              goldDark: '#99732F',
+              rose: '#E8C5B8',
+              roseSoft: '#F6ECE8',
+              charcoal: '#1A1818',
+              darkSurface: '#121111',
+              cardDark: '#1E1B1B'
+            }
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif']
+          },
+          animation: {
+            'fade-in': 'fadeIn 0.5s ease-out forwards',
+            'slide-up': 'slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+            'pulse-subtle': 'pulseSubtle 3s infinite ease-in-out'
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' }
+            },
+            slideUp: {
+              '0%': { opacity: '0', transform: 'translateY(24px)' },
+              '100%': { opacity: '0', transform: 'translateY(0)' }
+            },
+            pulseSubtle: {
+              '0%, 100%': { transform: 'scale(1)', opacity: '1' },
+              '50%': { transform: 'scale(1.04)', opacity: '0.95' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Luxury Styling & Micro-interactions */
+    ::selection {
+      background-color: #C5A059;
+      color: #FFFFFF;
+    }
+    
+    /* Elegant Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 7px;
+      height: 7px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #FAF8F5;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #D8BF90;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #C5A059;
+    }
+
+    .gold-gradient {
+      background: linear-gradient(135deg, #ECC885 0%, #C5A059 50%, #99732F 100%);
+    }
+
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #ECC885 0%, #C5A059 50%, #99732F 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .gold-border-gradient {
+      border-image: linear-gradient(to right, #FAF8F5, #C5A059, #FAF8F5) 1;
+    }
+
+    .glass-panel {
+      background: rgba(255, 255, 255, 0.82);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(197, 160, 89, 0.2);
+    }
+
+    .glass-panel-dark {
+      background: rgba(26, 24, 24, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(197, 160, 89, 0.25);
+    }
+
+    /* Modal Backdrop Transitions */
+    .modal-active {
+      display: flex !important;
+      animation: modalFadeIn 0.3s ease-out forwards;
+    }
+    @keyframes modalFadeIn {
+      from { opacity: 0; transform: scale(0.98); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+
+<body class="bg-brand-ivory text-brand-charcoal font-sans antialiased overflow-x-hidden selection:bg-brand-gold selection:text-white">
+
+  <!-- Top Announcement / Salon Hours Bar -->
+  <div class="bg-brand-charcoal text-stone-300 text-xs py-2 px-4 border-b border-brand-gold/20 tracking-wider">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+      <div class="flex items-center gap-4">
+        <span class="flex items-center gap-1.5"><i class="fa-regular fa-clock text-brand-champagne text-[11px]"></i> <span id="top-hours">Tue - Sun: 10:00 AM - 8:00 PM</span></span>
+        <span class="hidden md:inline text-stone-600">|</span>
+        <span class="hidden md:flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-brand-champagne text-[11px]"></i> <span id="top-address">Luxury Suite 4B, Haute Promenade</span></span>
+      </div>
+      <div class="flex items-center gap-4">
+        <a id="top-phone-link" href="tel:+1234567890" class="hover:text-brand-champagne transition-colors flex items-center gap-1.5">
+          <i class="fa-solid fa-phone text-brand-champagne text-[11px]"></i> <span id="top-phone">+1 (234) 567-890</span>
+        </a>
+        <button onclick="openAdminModal()" class="px-2.5 py-0.5 rounded-full bg-brand-gold/15 hover:bg-brand-gold/30 text-brand-champagne border border-brand-gold/30 transition-all text-[11px] font-medium flex items-center gap-1">
+          <i class="fa-solid fa-lock text-[10px]"></i> Salon Portal
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Primary Sticky Header Navigation -->
+  <header class="sticky top-0 z-40 bg-brand-ivory/95 backdrop-blur-md border-b border-amber-900/10 transition-all duration-300 shadow-sm" id="main-header">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo / Wordmark -->
+      <a href="#" class="flex items-center gap-3 group focus:outline-none">
+        <div id="nav-logo-container" class="w-11 h-11 rounded-full border border-brand-gold/60 flex items-center justify-center bg-white shadow-sm overflow-hidden p-1 group-hover:border-brand-gold transition-colors">
+          <img id="site-logo" src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=120&auto=format&fit=crop&q=80" alt="N N Perfect Beauty Logo" class="w-full h-full object-cover rounded-full" onerror="this.src='https://placehold.co/100x100/FAF8F5/C5A059?text=NN'">
+        </div>
+        <div class="flex flex-col">
+          <span id="site-brand-title" class="font-serif text-2xl tracking-[0.16em] uppercase font-bold text-brand-charcoal group-hover:text-brand-gold transition-colors">N N PERFECT BEAUTY</span>
+          <span class="text-[9px] uppercase tracking-[0.28em] text-brand-gold font-medium -mt-1">High-End Salon & Spa Studio</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="hidden lg:flex items-center space-x-8 text-sm font-medium tracking-wide">
+        <a href="#services" class="hover:text-brand-gold transition-colors text-stone-700">Services</a>
+        <a href="#featured" class="hover:text-brand-gold transition-colors text-stone-700">Special Offers</a>
+        <a href="#gallery" class="hover:text-brand-gold transition-colors text-stone-700">Before & After</a>
+        <a href="#about" class="hover:text-brand-gold transition-colors text-stone-700">Our Story</a>
+        <a href="#reviews" class="hover:text-brand-gold transition-colors text-stone-700">Testimonials</a>
+        <a href="#contact" class="hover:text-brand-gold transition-colors text-stone-700">Location</a>
+      </nav>
+
+      <!-- Desktop Action CTAs -->
+      <div class="hidden lg:flex items-center gap-3">
+        <a id="nav-whatsapp-btn" href="#" target="_blank" class="px-4 py-2.5 rounded-full border border-emerald-600/30 text-emerald-800 bg-emerald-50/80 hover:bg-emerald-100 transition-all text-xs font-semibold tracking-wider flex items-center gap-2">
+          <i class="fa-brands fa-whatsapp text-emerald-600 text-base"></i> WhatsApp
+        </a>
+        <a href="#booking" class="gold-gradient px-6 py-2.5 rounded-full text-white font-medium text-xs tracking-wider uppercase shadow-md hover:shadow-lg hover:brightness-105 active:scale-95 transition-all flex items-center gap-2">
+          <span>Book Appointment</span>
+          <i class="fa-solid fa-arrow-right text-[10px]"></i>
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <div class="flex items-center gap-2 lg:hidden">
+        <a href="#booking" class="gold-gradient p-2.5 rounded-full text-white text-xs shadow-sm">
+          <i class="fa-regular fa-calendar-check text-sm"></i>
+        </a>
+        <button id="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Open Navigation Menu" class="p-2.5 rounded-lg text-brand-charcoal hover:bg-amber-100/50 focus:outline-none">
+          <i class="fa-solid fa-bars-staggered text-xl"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Navigation -->
+    <div id="mobile-menu-drawer" class="hidden lg:hidden bg-brand-ivory border-b border-brand-gold/20 px-6 py-5 space-y-4 shadow-xl">
+      <div class="flex flex-col space-y-3 font-medium text-base text-stone-800">
+        <a href="#services" onclick="toggleMobileMenu()" class="py-1 hover:text-brand-gold">Services & Treatments</a>
+        <a href="#featured" onclick="toggleMobileMenu()" class="py-1 hover:text-brand-gold">Special Offers</a>
+        <a href="#gallery" onclick="toggleMobileMenu()" class="py-1 hover:text-brand-gold">Before & After Gallery</a>
+        <a href="#about" onclick="toggleMobileMenu()" class="py-1 hover:text-brand-gold">About Our Studio</a>
+        <a href="#reviews" onclick="toggleMobileMenu()" class="py-1 hover:text-brand-gold">Verified Client Reviews</a>
+        <a href="#contact" onclick="toggleMobileMenu()" class="py-1 hover:text-brand-gold">Contact & Opening Hours</a>
+      </div>
+      <div class="pt-4 border-t border-amber-900/10 flex flex-col gap-2.5">
+        <a id="mobile-whatsapp-btn" href="#" target="_blank" class="w-full py-3 rounded-full text-center bg-emerald-600 text-white font-medium text-sm flex items-center justify-center gap-2 shadow-sm">
+          <i class="fa-brands fa-whatsapp text-lg"></i> Quick WhatsApp Booking
+        </a>
+        <a href="#booking" onclick="toggleMobileMenu()" class="w-full gold-gradient py-3 rounded-full text-center text-white font-medium text-sm uppercase tracking-wider shadow-md">
+          Book Appointment Online
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative min-h-[85vh] sm:min-h-[90vh] flex items-center justify-center overflow-hidden bg-brand-charcoal text-white">
+    <!-- Hero Image Layer with Parallax-ready zoom & Dark Luxury Overlay -->
+    <div class="absolute inset-0 z-0">
+      <img id="hero-bg-img" 
+           src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1920&q=80" 
+           alt="N N Perfect Beauty Salon Luxury Ambience" 
+           class="w-full h-full object-cover object-center scale-105 transition-transform duration-1000 ease-out brightness-90"
+           onerror="this.src='https://placehold.co/1920x1080/1A1818/C5A059?text=N+N+PERFECT+BEAUTY'">
+      <div class="absolute inset-0 bg-gradient-to-t from-brand-charcoal via-brand-charcoal/70 to-brand-charcoal/40"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-amber-500/10 via-transparent to-transparent"></div>
+    </div>
+
+    <!-- Hero Content Container -->
+    <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center flex flex-col items-center">
+      
+      <!-- Verified Luxury Badge -->
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-brand-champagne/40 text-brand-champagne text-xs font-medium tracking-[0.2em] uppercase mb-6 shadow-lg">
+        <i class="fa-solid fa-crown text-[11px]"></i>
+        <span>Excellence in Bespoke Aesthetics</span>
+      </div>
+
+      <!-- Main Headline -->
+      <h1 id="hero-headline" class="font-serif text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-white mb-6 leading-[1.15] max-w-4xl">
+        Your Beauty. Your Confidence. <span class="block gold-gradient-text italic font-normal">Your Perfect Look.</span>
+      </h1>
+
+      <!-- Supporting Sub-text -->
+      <p id="hero-subtext" class="text-stone-300 text-base sm:text-xl font-light max-w-2xl mx-auto mb-10 leading-relaxed">
+        Discover personalized beauty services designed to help you look and feel your absolute best with our certified master stylists and aesthetic professionals.
+      </p>
+
+      <!-- Conversion CTAs -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
+        <a href="#booking" class="w-full sm:w-auto gold-gradient px-8 py-4 rounded-full text-white font-semibold text-sm uppercase tracking-widest shadow-xl hover:shadow-amber-500/20 hover:scale-105 active:scale-95 transition-all duration-300 flex items-center justify-center gap-3">
+          <i class="fa-regular fa-calendar-check"></i>
+          <span id="hero-cta-primary">Book Your Appointment</span>
+        </a>
+        <a href="#services" class="w-full sm:w-auto px-8 py-4 rounded-full bg-white/10 hover:bg-white/20 text-white font-semibold text-sm tracking-wider backdrop-blur-md border border-white/20 hover:border-brand-champagne transition-all duration-300 flex items-center justify-center gap-2">
+          <span id="hero-cta-secondary">Explore Our Services</span>
+          <i class="fa-solid fa-angle-right text-xs"></i>
+        </a>
+      </div>
+
+      <!-- Quick Social Proof Metric Ribbons -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8 mt-16 pt-10 border-t border-white/15 w-full max-w-3xl">
+        <div class="text-center">
+          <span class="block font-serif text-2xl sm:text-3xl font-bold text-brand-champagne">100%</span>
+          <span class="text-[11px] text-stone-300 uppercase tracking-widest">Personalized Care</span>
+        </div>
+        <div class="text-center">
+          <span class="block font-serif text-2xl sm:text-3xl font-bold text-brand-champagne">Premium</span>
+          <span class="text-[11px] text-stone-300 uppercase tracking-widest">Global Brands</span>
+        </div>
+        <div class="text-center">
+          <span class="block font-serif text-2xl sm:text-3xl font-bold text-brand-champagne">Certified</span>
+          <span class="text-[11px] text-stone-300 uppercase tracking-widest">Master Artists</span>
+        </div>
+        <div class="text-center">
+          <span class="block font-serif text-2xl sm:text-3xl font-bold text-brand-champagne">5-Star</span>
+          <span class="text-[11px] text-stone-300 uppercase tracking-widest">Client Reviews</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Trust & Core Benefits Section -->
+  <section class="py-16 sm:py-20 bg-brand-ivory relative z-10 border-b border-amber-900/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="text-xs uppercase tracking-[0.25em] text-brand-gold font-bold">The Gold Standard</span>
+        <h2 class="font-serif text-3xl sm:text-4xl text-brand-charcoal font-bold mt-2">Why Discerning Clients Choose Us</h2>
+        <div class="w-16 h-0.5 bg-brand-gold mx-auto mt-4"></div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        
+        <!-- Benefit 1 -->
+        <div class="bg-white p-8 rounded-2xl border border-brand-gold/20 shadow-sm hover:shadow-md transition-all duration-300 group hover:-translate-y-1">
+          <div class="w-14 h-14 rounded-2xl bg-brand-roseSoft flex items-center justify-center mb-6 group-hover:bg-brand-gold transition-colors duration-300">
+            <i class="fa-solid fa-wand-magic-sparkles text-brand-gold text-2xl group-hover:text-white transition-colors"></i>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-brand-charcoal mb-2">Personalized Beauty Care</h3>
+          <p class="text-stone-600 text-sm leading-relaxed">
+            Every facial, haircut, and cosmetic application starts with an in-depth consultation tailored to your unique skin and facial contours.
+          </p>
+        </div>
+
+        <!-- Benefit 2 -->
+        <div class="bg-white p-8 rounded-2xl border border-brand-gold/20 shadow-sm hover:shadow-md transition-all duration-300 group hover:-translate-y-1">
+          <div class="w-14 h-14 rounded-2xl bg-brand-roseSoft flex items-center justify-center mb-6 group-hover:bg-brand-gold transition-colors duration-300">
+            <i class="fa-solid fa-award text-brand-gold text-2xl group-hover:text-white transition-colors"></i>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-brand-charcoal mb-2">Professional Service</h3>
+          <p class="text-stone-600 text-sm leading-relaxed">
+            Licensed therapists and seasoned hair technicians trained in international salon sanitation and styling methodologies.
+          </p>
+        </div>
+
+        <!-- Benefit 3 -->
+        <div class="bg-white p-8 rounded-2xl border border-brand-gold/20 shadow-sm hover:shadow-md transition-all duration-300 group hover:-translate-y-1">
+          <div class="w-14 h-14 rounded-2xl bg-brand-roseSoft flex items-center justify-center mb-6 group-hover:bg-brand-gold transition-colors duration-300">
+            <i class="fa-solid fa-spa text-brand-gold text-2xl group-hover:text-white transition-colors"></i>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-brand-charcoal mb-2">Premium Experience</h3>
+          <p class="text-stone-600 text-sm leading-relaxed">
+            A tranquil, aromatic haven with plush chairs, artisan teas, and soothing music designed to melt away your daily stress.
+          </p>
+        </div>
+
+        <!-- Benefit 4 -->
+        <div class="bg-white p-8 rounded-2xl border border-brand-gold/20 shadow-sm hover:shadow-md transition-all duration-300 group hover:-translate-y-1">
+          <div class="w-14 h-14 rounded-2xl bg-brand-roseSoft flex items-center justify-center mb-6 group-hover:bg-brand-gold transition-colors duration-300">
+            <i class="fa-solid fa-calendar-check text-brand-gold text-2xl group-hover:text-white transition-colors"></i>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-brand-charcoal mb-2">Easy Booking & Chat</h3>
+          <p class="text-stone-600 text-sm leading-relaxed">
+            Select your preferred technician, time slot, and date in seconds. Instant WhatsApp synchronization and rapid confirmations.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Services Catalog Section -->
+  <section id="services" class="py-20 bg-stone-50/60 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+        <div>
+          <span class="text-xs uppercase tracking-[0.25em] text-brand-gold font-bold">Artistry & Indulgence</span>
+          <h2 class="font-serif text-3xl sm:text-5xl text-brand-charcoal font-bold mt-1">Our Signature Services</h2>
+          <p class="text-stone-600 text-sm sm:text-base mt-2 max-w-xl">
+            From precision haircuts and botanical facials to couture bridal styling, experience our meticulous craftsmanship.
+          </p>
+        </div>
+        <!-- Category Filter Buttons -->
+        <div class="mt-6 md:mt-0 flex flex-wrap gap-2" id="service-category-filters">
+          <!-- Dynamically populated or rendered -->
+        </div>
+      </div>
+
+      <!-- Services Grid Container -->
+      <div id="services-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Rendered via JavaScript from state.services -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Featured Special Offers -->
+  <section id="featured" class="py-20 bg-brand-charcoal text-white relative overflow-hidden">
+    <!-- Subtle background accent rings -->
+    <div class="absolute -right-32 -bottom-32 w-96 h-96 rounded-full border border-brand-gold/10 pointer-events-none"></div>
+    <div class="absolute -left-32 -top-32 w-96 h-96 rounded-full border border-brand-gold/10 pointer-events-none"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="text-xs uppercase tracking-[0.25em] text-brand-champagne font-bold">Exclusive Privileges</span>
+        <h2 class="font-serif text-3xl sm:text-5xl font-bold mt-2">Verified Seasonal Offers</h2>
+        <p class="text-stone-400 text-sm mt-3">Take advantage of curated beauty packages verified and managed directly by our salon management.</p>
+        <div class="w-16 h-0.5 bg-brand-gold mx-auto mt-4"></div>
+      </div>
+
+      <div id="featured-offers-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Populated dynamically from state.specialOffers -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Before & After Transformation Gallery -->
+  <section id="gallery" class="py-20 bg-brand-ivory relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+        <div>
+          <span class="text-xs uppercase tracking-[0.25em] text-brand-gold font-bold">Real Results</span>
+          <h2 class="font-serif text-3xl sm:text-5xl text-brand-charcoal font-bold mt-1">Transformations Gallery</h2>
+          <p class="text-stone-600 text-sm sm:text-base mt-2 max-w-xl">
+            Authentic transformations showcasing our expertise in hair rejuvenation, skincare peels, bridal looks, and nail architecture.
+          </p>
+        </div>
+        <!-- Gallery Filter Buttons -->
+        <div class="mt-6 md:mt-0 flex flex-wrap gap-2" id="gallery-category-filters">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Rendered via JavaScript from state.gallery -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- About Us Section -->
+  <section id="about" class="py-20 bg-white border-y border-amber-900/10 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Imagery Composite -->
+        <div class="lg:col-span-6 relative">
+          <div class="relative mx-auto max-w-md lg:max-w-none">
+            <div class="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border-4 border-brand-ivory">
+              <img id="about-image-main" 
+                   src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=900&q=80" 
+                   alt="N N Perfect Beauty Salon Interior Atmosphere" 
+                   class="w-full h-full object-cover object-center"
+                   onerror="this.src='https://placehold.co/800x1000/FAF8F5/C5A059?text=Studio+Interior'">
+            </div>
+            
+            <!-- Floating Decorative Glass Tag -->
+            <div class="absolute -bottom-6 -right-4 sm:bottom-8 sm:-right-8 bg-brand-charcoal text-white p-6 rounded-2xl shadow-xl border border-brand-gold/30 max-w-xs">
+              <div class="flex items-center gap-3 mb-2">
+                <span class="w-3 h-3 rounded-full bg-emerald-400 animate-ping"></span>
+                <span class="text-xs uppercase tracking-widest text-brand-champagne font-semibold">Strict Hygiene Standards</span>
+              </div>
+              <p class="text-xs text-stone-300 leading-normal">
+                100% sterilized instruments, disposable materials, and medical-grade skincare protocols.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Story & Mission Content -->
+        <div class="lg:col-span-6">
+          <span class="text-xs uppercase tracking-[0.25em] text-brand-gold font-bold">Our Philosophy</span>
+          <h2 id="about-title" class="font-serif text-3xl sm:text-5xl text-brand-charcoal font-bold mt-2 mb-6 leading-tight">
+            Crafting Personalized Elegance Since Day One
+          </h2>
+          
+          <div id="about-story-text" class="text-stone-600 space-y-4 text-base leading-relaxed mb-8">
+            <p>
+              At <strong>N N PERFECT BEAUTY</strong>, we believe true beauty is an effortless extension of your individual personality. We step away from one-size-fits-all beauty routines to provide an intimate sanctuary where artistry meets wellness.
+            </p>
+            <p>
+              Our specialists participate regularly in masterclasses to remain at the cutting edge of balayage techniques, keratin treatments, organic hydra-facials, and celebratory bridal transformations.
+            </p>
+          </div>
+
+          <!-- Highlights Checklist -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+            <div class="flex items-center gap-3">
+              <span class="w-7 h-7 rounded-full bg-brand-gold/20 flex items-center justify-center text-brand-goldDark text-xs font-bold"><i class="fa-solid fa-check"></i></span>
+              <span class="text-sm font-medium text-stone-800">Cruelty-Free Products</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="w-7 h-7 rounded-full bg-brand-gold/20 flex items-center justify-center text-brand-goldDark text-xs font-bold"><i class="fa-solid fa-check"></i></span>
+              <span class="text-sm font-medium text-stone-800">Private Bridal Suite</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="w-7 h-7 rounded-full bg-brand-gold/20 flex items-center justify-center text-brand-goldDark text-xs font-bold"><i class="fa-solid fa-check"></i></span>
+              <span class="text-sm font-medium text-stone-800">Complimentary Consultations</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="w-7 h-7 rounded-full bg-brand-gold/20 flex items-center justify-center text-brand-goldDark text-xs font-bold"><i class="fa-solid fa-check"></i></span>
+              <span class="text-sm font-medium text-stone-800">Sanitized Environment</span>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-4">
+            <a href="#booking" class="gold-gradient px-8 py-3.5 rounded-full text-white font-medium text-xs tracking-wider uppercase shadow-md hover:shadow-lg transition-all">
+              Reserve Your Experience
+            </a>
+            <a href="#contact" class="px-6 py-3.5 rounded-full border border-stone-300 hover:border-brand-gold text-stone-700 text-xs font-medium tracking-wider uppercase transition-colors">
+              Find Our Studio
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Verified Customer Reviews Section -->
+  <section id="reviews" class="py-20 bg-stone-50/70">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="text-xs uppercase tracking-[0.25em] text-brand-gold font-bold">Client Reflections</span>
+        <h2 class="font-serif text-3xl sm:text-5xl text-brand-charcoal font-bold mt-2">What Our Clients Say</h2>
+        <p class="text-stone-600 text-sm mt-3">Verified genuine feedback from our salon guests.</p>
+        <div class="w-16 h-0.5 bg-brand-gold mx-auto mt-4"></div>
+      </div>
+
+      <div id="reviews-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Rendered via JavaScript from state.reviews -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Appointment Booking Section -->
+  <section id="booking" class="py-20 bg-brand-ivory relative">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="bg-white rounded-3xl shadow-xl border border-brand-gold/20 overflow-hidden">
+        
+        <!-- Header Banner -->
+        <div class="bg-brand-charcoal text-white p-8 sm:p-10 text-center relative">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-gold/20 text-brand-champagne text-xs font-semibold uppercase tracking-wider mb-3">
+            <i class="fa-regular fa-calendar-check"></i> Instant Online Booking Request
+          </div>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold">Reserve Your Beauty Session</h2>
+          <p class="text-stone-300 text-sm mt-2 max-w-lg mx-auto">
+            Select your service and preferred date. Our concierge will promptly confirm your reservation via phone or WhatsApp.
+          </p>
+        </div>
+
+        <!-- Form Body -->
+        <form id="appointment-form" onsubmit="handleBookingSubmit(event)" class="p-8 sm:p-10 space-y-6">
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            
+            <!-- Full Name -->
+            <div>
+              <label for="booking-name" class="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-2">
+                Your Full Name <span class="text-rose-500">*</span>
+              </label>
+              <div class="relative">
+                <i class="fa-regular fa-user absolute left-4 top-1/2 -translate-y-1/2 text-stone-400"></i>
+                <input type="text" id="booking-name" required placeholder="e.g. Eleanor Vance"
+                  class="w-full pl-11 pr-4 py-3 rounded-xl border border-stone-200 focus:border-brand-gold focus:ring-2 focus:ring-brand-gold/20 transition-all text-sm outline-none">
+              </div>
+            </div>
+
+            <!-- Phone Number -->
+            <div>
+              <label for="booking-phone" class="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-2">
+                Phone Number <span class="text-rose-500">*</span>
+              </label>
+              <div class="relative">
+                <i class="fa-solid fa-phone absolute left-4 top-1/2 -translate-y-1/2 text-stone-400"></i>
+                <input type="tel" id="booking-phone" required placeholder="e.g. +1 (555) 234-5678"
+                  class="w-full pl-11 pr-4 py-3 rounded-xl border border-stone-200 focus:border-brand-gold focus:ring-2 focus:ring-brand-gold/20 transition-all text-sm outline-none">
+              </div>
+            </div>
+
+            <!-- WhatsApp Number (Optional) -->
+            <div>
+              <label for="booking-whatsapp" class="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-2">
+                WhatsApp Number <span class="text-stone-400 font-normal text-[11px]">(Optional for direct updates)</span>
+              </label>
+              <div class="relative">
+                <i class="fa-brands fa-whatsapp absolute left-4 top-1/2 -translate-y-1/2 text-emerald-600"></i>
+                <input type="tel" id="booking-whatsapp" placeholder="e.g. +1 (555) 234-5678"
+                  class="w-full pl-11 pr-4 py-3 rounded-xl border border-stone-200 focus:border-brand-gold focus:ring-2 focus:ring-brand-gold/20 transition-all text-sm outline-none">
+              </div>
+            </div>
+
+            <!-- Select Service -->
+            <div>
+              <label for="booking-service" class="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-2">
+                Select Service <span class="text-rose-500">*</span>
+              </label>
+              <div class="relative">
+                <i class="fa-solid fa-sparkles absolute left-4 top-1/2 -translate-y-1/2 text-stone-400"></i>
+                <select id="booking-service" required
+                  class="w-full pl-11 pr-8 py-3 rounded-xl border border-stone-200 focus:border-brand-gold focus:ring-2 focus:ring-brand-gold/20 transition-all text-sm outline-none appearance-none bg-white">
+                  <option value="" disabled selected>Choose a beauty treatment...</option>
+                  <!-- Populated by JS -->
+                </select>
+                <i class="fa-solid fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-stone-400 text-xs pointer-events-none"></i>
+              </div>
+            </div>
+
+            <!-- Preferred Date -->
+            <div>
+              <label for="booking-date" class="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-2">
+                Preferred Date <span class="text-rose-500">*</span>
+              </label>
+              <div class="relative">
+                <i class="fa-regular fa-calendar absolute left-4 top-1/2 -translate-y-1/2 text-stone-400"></i>
+                <input type="date" id="booking-date" required
+                  class="w-full pl-11 pr-4 py-3 rounded-xl border border-stone-200 focus:border-brand-gold focus:ring-2 focus:ring-brand-gold/20 transition-all text-sm outline-none">
+              </div>
+            </div>
+
+            <!-- Preferred Time Slot -->
+            <div>
+              <label for="booking-time" class="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-2">
+                Preferred Time Slot <span class="text-rose-500">*</span>
+              </label>
+              <div class="relative">
+                <i class="fa-regular fa-clock absolute left-4 top-1/2 -translate-y-1/2 text-stone-400"></i>
+                <select id="booking-time" required
+                  class="w-full pl-11 pr-8 py-3 rounded-xl border border-stone-200 focus:border-brand-gold focus:ring-2 focus:ring-brand-gold/20 transition-all text-sm outline-none appearance-none bg-white">
+                  <option value="" disabled selected>Select convenient time...</option>
+                  <option value="10:00 AM">10:00 AM - Morning Slot</option>
+                  <option value="11:30 AM">11:30 AM - Morning Slot</option>
+                  <option value="01:00 PM">01:00 PM - Afternoon Slot</option>
+                  <option value="02:30 PM">02:30 PM - Afternoon Slot</option>
+                  <option value="04:00 PM">04:00 PM - Afternoon Slot</option>
+                  <option value="05:30 PM">05:30 PM - Evening Slot</option>
+                  <option value="07:00 PM">07:00 PM - Evening Slot</option>
+                </select>
+                <i class="fa-solid fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-stone-400 text-xs pointer-events-none"></i>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Additional Notes / Requests -->
+          <div>
+            <label for="booking-notes" class="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-2">
+              Special Requests or Skin/Hair Sensitivities (Optional)
+            </label>
+            <textarea id="booking-notes" rows="3" placeholder="Tell us if you have any allergies, prefer a specific stylist, or have an event deadline..."
+              class="w-full px-4 py-3 rounded-xl border border-stone-200 focus:border-brand-gold focus:ring-2 focus:ring-brand-gold/20 transition-all text-sm outline-none"></textarea>
+          </div>
+
+          <!-- Notification Info Note -->
+          <div class="p-4 rounded-xl bg-amber-50/70 border border-brand-gold/30 text-xs text-stone-700 flex items-start gap-3">
+            <i class="fa-solid fa-circle-info text-brand-gold mt-0.5 text-sm"></i>
+            <span>
+              <strong>Note:</strong> Submitting this request sends your preference to our appointment desk. We verify schedule availability and confirm your exact booking promptly.
+            </span>
+          </div>
+
+          <!-- Submission Buttons Group -->
+          <div class="flex flex-col sm:flex-row gap-4 pt-2">
+            <button type="submit" id="booking-submit-btn" class="flex-1 gold-gradient py-4 px-6 rounded-full text-white font-semibold text-sm uppercase tracking-wider shadow-md hover:shadow-lg hover:brightness-105 active:scale-95 transition-all flex items-center justify-center gap-2">
+              <i class="fa-regular fa-paper-plane"></i>
+              <span>Submit Appointment Request</span>
+            </button>
+            <button type="button" onclick="submitDirectToWhatsApp()" class="sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-4 px-6 rounded-full text-sm flex items-center justify-center gap-2 transition-all shadow-md active:scale-95">
+              <i class="fa-brands fa-whatsapp text-lg"></i>
+              <span>Book via WhatsApp</span>
+            </button>
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Contact & Studio Location Section -->
+  <section id="contact" class="py-20 bg-stone-100/70 border-t border-amber-900/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="text-xs uppercase tracking-[0.25em] text-brand-gold font-bold">Visit Our Sanctuary</span>
+        <h2 class="font-serif text-3xl sm:text-5xl text-brand-charcoal font-bold mt-2">Location & Studio Hours</h2>
+        <div class="w-16 h-0.5 bg-brand-gold mx-auto mt-4"></div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Info Cards Column -->
+        <div class="lg:col-span-5 space-y-6">
+          
+          <!-- Physical Address Card -->
+          <div class="bg-white p-6 rounded-2xl border border-brand-gold/20 shadow-sm flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl bg-brand-roseSoft flex-shrink-0 flex items-center justify-center text-brand-gold">
+              <i class="fa-solid fa-map-location-dot text-xl"></i>
+            </div>
+            <div>
+              <h3 class="font-serif text-lg font-bold text-brand-charcoal">Studio Address</h3>
+              <p id="contact-address" class="text-stone-600 text-sm mt-1 leading-relaxed">
+                Luxury Suite 4B, Haute Promenade, Beauty Boulevard, Metropolis
+              </p>
+              <a id="contact-map-link" href="https://maps.google.com" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-gold hover:underline mt-2">
+                <span>Open in Google Maps</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Direct Line & WhatsApp Card -->
+          <div class="bg-white p-6 rounded-2xl border border-brand-gold/20 shadow-sm flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl bg-brand-roseSoft flex-shrink-0 flex items-center justify-center text-brand-gold">
+              <i class="fa-solid fa-phone-volume text-xl"></i>
+            </div>
+            <div class="flex-1">
+              <h3 class="font-serif text-lg font-bold text-brand-charcoal">Direct Appointments</h3>
+              <p class="text-stone-600 text-sm mt-1">Telephone & concierge inquiries:</p>
+              <div class="mt-2 flex flex-wrap gap-3">
+                <a id="contact-phone-btn" href="tel:+1234567890" class="text-sm font-bold text-brand-charcoal hover:text-brand-gold flex items-center gap-1.5">
+                  <i class="fa-solid fa-phone text-xs text-brand-gold"></i>
+                  <span id="contact-phone-display">+1 (234) 567-890</span>
+                </a>
+                <a id="contact-whatsapp-btn" href="#" target="_blank" class="text-xs font-semibold text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200 hover:bg-emerald-100 flex items-center gap-1.5">
+                  <i class="fa-brands fa-whatsapp text-sm text-emerald-600"></i> WhatsApp Concierge
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Studio Operating Hours -->
+          <div class="bg-white p-6 rounded-2xl border border-brand-gold/20 shadow-sm flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl bg-brand-roseSoft flex-shrink-0 flex items-center justify-center text-brand-gold">
+              <i class="fa-regular fa-clock text-xl"></i>
+            </div>
+            <div class="flex-1">
+              <h3 class="font-serif text-lg font-bold text-brand-charcoal">Opening Hours</h3>
+              <div id="contact-hours-container" class="mt-2 text-xs space-y-1.5 text-stone-600">
+                <div class="flex justify-between py-1 border-b border-stone-100">
+                  <span class="font-medium text-stone-800">Tuesday - Friday</span>
+                  <span id="hours-weekday">10:00 AM - 8:00 PM</span>
+                </div>
+                <div class="flex justify-between py-1 border-b border-stone-100">
+                  <span class="font-medium text-stone-800">Saturday - Sunday</span>
+                  <span id="hours-weekend">09:30 AM - 7:30 PM</span>
+                </div>
+                <div class="flex justify-between py-1 text-rose-600">
+                  <span class="font-medium">Monday</span>
+                  <span>Closed (Sanitation & Masterclasses)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Google Maps & Visual Directions Interactive Panel -->
+        <div class="lg:col-span-7 h-full">
+          <div class="bg-white rounded-2xl p-4 border border-brand-gold/20 shadow-sm h-full flex flex-col">
+            <div class="relative w-full h-[360px] sm:h-[420px] rounded-xl overflow-hidden bg-stone-200">
+              <iframe id="google-maps-iframe"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509374!2d144.9537353153166!3d-37.81627977975171!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d4c2b349649%3A0xb6899234e561db11!2sEnvato!5e0!3m2!1sen!2sus!4v1620000000000!5m2!1sen!2sus"
+                class="w-full h-full border-0"
+                allowfullscreen="" 
+                loading="lazy"
+                title="Salon Location Map">
+              </iframe>
+              <div class="absolute bottom-4 left-4 bg-brand-charcoal/90 backdrop-blur-md text-white px-4 py-2 rounded-lg text-xs flex items-center gap-2 border border-brand-gold/30">
+                <i class="fa-solid fa-square-parking text-brand-champagne"></i>
+                <span>Valet & Dedicated Guest Parking Available</span>
+              </div>
+            </div>
+
+            <!-- Social Handles Links -->
+            <div class="pt-4 flex items-center justify-between text-xs text-stone-500">
+              <span>Follow our daily work & stories:</span>
+              <div class="flex items-center gap-3">
+                <a id="link-instagram" href="https://instagram.com" target="_blank" class="w-8 h-8 rounded-full bg-stone-100 hover:bg-brand-roseSoft hover:text-brand-gold text-stone-700 flex items-center justify-center transition-colors">
+                  <i class="fa-brands fa-instagram text-sm"></i>
+                </a>
+                <a id="link-facebook" href="https://facebook.com" target="_blank" class="w-8 h-8 rounded-full bg-stone-100 hover:bg-brand-roseSoft hover:text-brand-gold text-stone-700 flex items-center justify-center transition-colors">
+                  <i class="fa-brands fa-facebook-f text-sm"></i>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-brand-charcoal text-stone-300 pt-16 pb-12 border-t border-brand-gold/20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-stone-800">
+        
+        <!-- Column 1: Brand Info -->
+        <div class="space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full border border-brand-gold/60 flex items-center justify-center bg-white p-1">
+              <img id="footer-logo" src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=120&auto=format&fit=crop&q=80" alt="Logo" class="w-full h-full object-cover rounded-full">
+            </div>
+            <span class="font-serif text-xl tracking-wider text-white font-bold">N N PERFECT BEAUTY</span>
+          </div>
+          <p class="text-xs text-stone-400 leading-relaxed">
+            A bespoke aesthetic salon dedicated to enhancing your personal radiance with elite styling and restorative self-care.
+          </p>
+          <div class="flex items-center gap-3 pt-2">
+            <a id="footer-ig" href="#" target="_blank" class="w-8 h-8 rounded-full bg-white/5 border border-white/10 hover:border-brand-gold hover:text-brand-champagne flex items-center justify-center text-xs transition-colors">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a id="footer-fb" href="#" target="_blank" class="w-8 h-8 rounded-full bg-white/5 border border-white/10 hover:border-brand-gold hover:text-brand-champagne flex items-center justify-center text-xs transition-colors">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a id="footer-wa" href="#" target="_blank" class="w-8 h-8 rounded-full bg-white/5 border border-white/10 hover:border-emerald-500 hover:text-emerald-400 flex items-center justify-center text-xs transition-colors">
+              <i class="fa-brands fa-whatsapp"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Column 2: Quick Links -->
+        <div>
+          <h4 class="font-serif text-base text-white font-bold tracking-wider uppercase mb-4 text-brand-champagne">Quick Navigation</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#services" class="hover:text-brand-gold transition-colors">Signature Services</a></li>
+            <li><a href="#featured" class="hover:text-brand-gold transition-colors">Seasonal Packages</a></li>
+            <li><a href="#gallery" class="hover:text-brand-gold transition-colors">Transformations Gallery</a></li>
+            <li><a href="#about" class="hover:text-brand-gold transition-colors">About Our Stylists</a></li>
+            <li><a href="#booking" class="hover:text-brand-gold transition-colors">Online Booking Desk</a></li>
+            <li><a href="#contact" class="hover:text-brand-gold transition-colors">Studio Directions</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Contact Summary -->
+        <div>
+          <h4 class="font-serif text-base text-white font-bold tracking-wider uppercase mb-4 text-brand-champagne">Inquiries</h4>
+          <p id="footer-address" class="text-xs text-stone-400 mb-2 leading-relaxed">
+            Luxury Suite 4B, Haute Promenade, Beauty Boulevard
+          </p>
+          <p class="text-xs text-stone-400 mb-1">
+            Phone: <a id="footer-phone" href="tel:+1234567890" class="hover:text-white font-medium">+1 (234) 567-890</a>
+          </p>
+          <p class="text-xs text-stone-400">
+            Email: <a id="footer-email" href="mailto:concierge@nnperfectbeauty.com" class="hover:text-white font-medium">concierge@nnperfectbeauty.com</a>
+          </p>
+        </div>
+
+        <!-- Column 4: Salon Owner / Admin Fast Access -->
+        <div>
+          <h4 class="font-serif text-base text-white font-bold tracking-wider uppercase mb-4 text-brand-champagne">Salon Operations</h4>
+          <p class="text-xs text-stone-400 mb-4 leading-relaxed">
+            Salon administrators can update appointments, pricing, services, and website imagery in real time.
+          </p>
+          <button onclick="openAdminModal()" class="w-full py-2.5 px-4 rounded-xl bg-white/10 hover:bg-brand-gold hover:text-white border border-brand-gold/40 text-brand-champagne text-xs font-semibold tracking-wider transition-all flex items-center justify-center gap-2">
+            <i class="fa-solid fa-lock"></i>
+            <span>Salon Owner Admin Panel</span>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-stone-500 gap-4">
+        <p>&copy; <span id="current-year"></span> N N PERFECT BEAUTY. All Rights Reserved. Crafted for elegance.</p>
+        <div class="flex items-center gap-6">
+          <button onclick="openPolicyModal('privacy')" class="hover:text-stone-400 transition-colors">Privacy Policy</button>
+          <button onclick="openPolicyModal('terms')" class="hover:text-stone-400 transition-colors">Terms of Service</button>
+          <button onclick="openAdminModal()" class="hover:text-brand-champagne transition-colors">Owner Login</button>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Quick Button -->
+  <a id="floating-whatsapp-btn" href="#" target="_blank" aria-label="Book on WhatsApp"
+     class="fixed bottom-6 right-6 z-40 bg-emerald-600 hover:bg-emerald-500 text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 group">
+    <i class="fa-brands fa-whatsapp text-3xl"></i>
+    <span class="absolute right-16 bg-brand-charcoal text-white text-xs px-3 py-1.5 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-lg border border-brand-gold/30">
+      Chat with Concierge
+    </span>
+  </a>
+
+  <!-- Booking Success Confirmation Modal -->
+  <div id="booking-success-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+    <div class="bg-white rounded-3xl max-w-md w-full p-8 shadow-2xl border border-brand-gold/40 text-center relative animate-fade-in">
+      
+      <div class="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 mx-auto flex items-center justify-center text-3xl mb-4">
+        <i class="fa-solid fa-check"></i>
+      </div>
+
+      <h3 class="font-serif text-2xl font-bold text-brand-charcoal">Booking Request Received!</h3>
+      <p class="text-stone-600 text-xs mt-2">
+        Thank you, <strong id="success-customer-name">Valued Guest</strong>. Your appointment request has been securely logged in our scheduling database.
+      </p>
+
+      <!-- Booking Summary Box -->
+      <div class="bg-brand-ivory p-4 rounded-xl border border-brand-gold/20 text-left text-xs my-5 space-y-1.5">
+        <div class="flex justify-between">
+          <span class="text-stone-500">Booking Reference:</span>
+          <span id="success-ref-id" class="font-mono font-bold text-brand-charcoal">NNB-9842</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-stone-500">Service:</span>
+          <span id="success-service-name" class="font-semibold text-stone-800">Signature Treatment</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-stone-500">Preferred Date & Time:</span>
+          <span id="success-slot-time" class="font-semibold text-stone-800">Tomorrow at 10:00 AM</span>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="space-y-3">
+        <a id="success-whatsapp-link" href="#" target="_blank" class="w-full py-3 px-4 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium text-xs flex items-center justify-center gap-2 shadow-sm transition-all">
+          <i class="fa-brands fa-whatsapp text-base"></i>
+          <span>Send Booking Confirmation via WhatsApp</span>
+        </a>
+        <button onclick="closeBookingModal()" class="w-full py-2.5 px-4 rounded-full border border-stone-300 hover:bg-stone-50 text-stone-700 text-xs font-medium transition-colors">
+          Return to Website
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Before & After Lightbox Viewer Modal -->
+  <div id="lightbox-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/90 backdrop-blur-md p-4">
+    <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white text-3xl hover:text-brand-champagne transition-colors z-50">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    <div class="max-w-4xl w-full bg-brand-charcoal rounded-2xl overflow-hidden border border-brand-gold/30 shadow-2xl">
+      <div class="relative max-h-[75vh] flex items-center justify-center bg-black">
+        <img id="lightbox-img" src="" alt="Transformation" class="max-h-[70vh] w-auto object-contain">
+      </div>
+      <div class="p-6 text-white flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-brand-darkSurface">
+        <div>
+          <span id="lightbox-category" class="text-xs uppercase tracking-widest text-brand-champagne font-bold">Category</span>
+          <h4 id="lightbox-caption" class="font-serif text-xl font-bold mt-0.5">Transformation Description</h4>
+        </div>
+        <a href="#booking" onclick="closeLightbox()" class="gold-gradient px-6 py-2.5 rounded-full text-white text-xs uppercase tracking-wider font-semibold">
+          Book Similar Result
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Privacy Policy / Terms Modal -->
+  <div id="policy-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+    <div class="bg-white rounded-3xl max-w-xl w-full p-8 shadow-2xl border border-stone-200 relative max-h-[85vh] overflow-y-auto">
+      <button onclick="closePolicyModal()" class="absolute top-6 right-6 text-stone-400 hover:text-stone-700 text-xl">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <h3 id="policy-modal-title" class="font-serif text-2xl font-bold text-brand-charcoal mb-4">Privacy Policy</h3>
+      <div id="policy-modal-content" class="text-stone-600 text-xs space-y-3 leading-relaxed">
+        <!-- Content inserted dynamically -->
+      </div>
+      <div class="mt-6 pt-4 border-t border-stone-200 text-right">
+        <button onclick="closePolicyModal()" class="px-6 py-2 rounded-full bg-brand-charcoal text-white text-xs font-semibold">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- ADMIN PANEL & CONTENT / IMAGE MANAGEMENT MODAL SUITE                      -->
+  <!-- ========================================================================= -->
+  <div id="admin-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 backdrop-blur-md p-2 sm:p-4 overflow-y-auto">
+    
+    <div class="bg-white rounded-3xl max-w-5xl w-full my-auto shadow-2xl border border-brand-gold/30 overflow-hidden flex flex-col max-h-[92vh]">
+      
+      <!-- Admin Modal Header Bar -->
+      <div class="bg-brand-charcoal text-white px-6 py-4 flex items-center justify-between border-b border-brand-gold/20 flex-shrink-0">
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-lg gold-gradient flex items-center justify-center text-white font-bold text-sm">
+            NN
+          </div>
+          <div>
+            <h3 class="font-serif text-lg font-bold tracking-wide">N N PERFECT BEAUTY — Management Suite</h3>
+            <p class="text-[11px] text-brand-champagne">Role: Salon Owner / Operations Manager</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <span id="admin-auth-indicator" class="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-[10px] font-medium">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Authenticated
+          </span>
+          <button onclick="closeAdminModal()" class="text-stone-400 hover:text-white text-xl p-1">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Admin Login View (If not authenticated) -->
+      <div id="admin-login-view" class="p-8 sm:p-12 text-center max-w-md mx-auto my-auto space-y-6">
+        <div class="w-16 h-16 rounded-2xl bg-brand-roseSoft text-brand-gold mx-auto flex items-center justify-center text-2xl border border-brand-gold/30">
+          <i class="fa-solid fa-shield-halved"></i>
+        </div>
+        <div>
+          <h4 class="font-serif text-2xl font-bold text-brand-charcoal">Salon Owner Access</h4>
+          <p class="text-stone-500 text-xs mt-1">Please enter your management security code to access appointment records and content editing tools.</p>
+        </div>
+        <form onsubmit="handleAdminLogin(event)" class="space-y-4">
+          <div>
+            <input type="password" id="admin-password-input" placeholder="Enter owner passcode (Default: admin123)" required
+              class="w-full px-4 py-3 rounded-xl border border-stone-200 focus:border-brand-gold focus:ring-2 focus:ring-brand-gold/20 text-center text-sm outline-none">
+            <p class="text-[11px] text-stone-400 mt-1.5">For preview testing: <code class="font-mono text-brand-gold font-bold">admin123</code></p>
+          </div>
+          <button type="submit" class="w-full gold-gradient py-3 rounded-xl text-white font-semibold text-xs uppercase tracking-wider shadow-md hover:brightness-105 active:scale-95 transition-all">
+            Unlock Admin Panel
+          </button>
+        </form>
+      </div>
+
+      <!-- Authenticated Admin Workspace -->
+      <div id="admin-workspace-view" class="hidden flex-1 overflow-hidden flex flex-col md:flex-row">
+        
+        <!-- Sidebar Navigation Tabs -->
+        <div class="w-full md:w-56 bg-stone-50 border-r border-stone-200 p-4 space-y-1.5 flex-shrink-0 flex md:flex-col overflow-x-auto md:overflow-x-visible">
+          <button onclick="switchAdminTab('dashboard')" id="tab-btn-dashboard" class="admin-nav-btn active flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-xs font-medium text-left w-full transition-colors bg-brand-charcoal text-white">
+            <i class="fa-solid fa-chart-pie w-4"></i> Dashboard
+          </button>
+          <button onclick="switchAdminTab('bookings')" id="tab-btn-bookings" class="admin-nav-btn flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-xs font-medium text-left w-full transition-colors text-stone-600 hover:bg-stone-200">
+            <i class="fa-solid fa-calendar-check w-4"></i> Bookings <span id="admin-pending-badge" class="ml-auto bg-amber-500 text-white px-1.5 py-0.2 rounded-full text-[10px]">0</span>
+          </button>
+          <button onclick="switchAdminTab('services')" id="tab-btn-services" class="admin-nav-btn flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-xs font-medium text-left w-full transition-colors text-stone-600 hover:bg-stone-200">
+            <i class="fa-solid fa-scissors w-4"></i> Services
+          </button>
+          <button onclick="switchAdminTab('images')" id="tab-btn-images" class="admin-nav-btn flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-xs font-medium text-left w-full transition-colors text-stone-600 hover:bg-stone-200">
+            <i class="fa-solid fa-image w-4"></i> Image Manager
+          </button>
+          <button onclick="switchAdminTab('gallery')" id="tab-btn-gallery" class="admin-nav-btn flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-xs font-medium text-left w-full transition-colors text-stone-600 hover:bg-stone-200">
+            <i class="fa-solid fa-images w-4"></i> Transformations
+          </button>
+          <button onclick="switchAdminTab('settings')" id="tab-btn-settings" class="admin-nav-btn flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-xs font-medium text-left w-full transition-colors text-stone-600 hover:bg-stone-200">
+            <i class="fa-solid fa-sliders w-4"></i> Site Content
+          </button>
+          <div class="hidden md:block pt-4 border-t border-stone-200 mt-auto">
+            <button onclick="handleAdminLogout()" class="w-full text-left px-3 py-2 rounded-xl text-xs text-rose-600 hover:bg-rose-50 font-medium flex items-center gap-2">
+              <i class="fa-solid fa-arrow-right-from-bracket"></i> Sign Out
+            </button>
+          </div>
+        </div>
+
+        <!-- Main Content Area with Scroll -->
+        <div class="flex-1 p-5 sm:p-7 overflow-y-auto bg-white space-y-6">
+          
+          <!-- TAB 1: DASHBOARD METRICS -->
+          <div id="admin-tab-dashboard" class="space-y-6">
+            <div class="flex justify-between items-center">
+              <div>
+                <h4 class="font-serif text-2xl font-bold text-brand-charcoal">Operations Overview</h4>
+                <p class="text-stone-500 text-xs">Live appointments & catalog metrics.</p>
+              </div>
+              <button onclick="exportBookingsCSV()" class="px-3 py-1.5 rounded-lg border border-stone-300 text-xs font-medium text-stone-700 hover:bg-stone-50 flex items-center gap-1.5">
+                <i class="fa-solid fa-download text-stone-400"></i> Export Appointments
+              </button>
+            </div>
+
+            <!-- Stats Ribbon -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+              <div class="bg-stone-50 p-4 rounded-2xl border border-stone-200">
+                <span class="text-xs text-stone-500 font-medium">Total Bookings</span>
+                <p id="stat-total-bookings" class="font-serif text-2xl sm:text-3xl font-bold text-brand-charcoal mt-1">0</p>
+              </div>
+              <div class="bg-amber-50/60 p-4 rounded-2xl border border-amber-200">
+                <span class="text-xs text-amber-800 font-medium">Pending Approvals</span>
+                <p id="stat-pending-bookings" class="font-serif text-2xl sm:text-3xl font-bold text-amber-600 mt-1">0</p>
+              </div>
+              <div class="bg-emerald-50/60 p-4 rounded-2xl border border-emerald-200">
+                <span class="text-xs text-emerald-800 font-medium">Confirmed</span>
+                <p id="stat-confirmed-bookings" class="font-serif text-2xl sm:text-3xl font-bold text-emerald-600 mt-1">0</p>
+              </div>
+              <div class="bg-rose-50/60 p-4 rounded-2xl border border-rose-200">
+                <span class="text-xs text-rose-800 font-medium">Active Services</span>
+                <p id="stat-active-services" class="font-serif text-2xl sm:text-3xl font-bold text-rose-600 mt-1">0</p>
+              </div>
+            </div>
+
+            <!-- Recent Requests Table -->
+            <div class="border border-stone-200 rounded-2xl overflow-hidden shadow-sm">
+              <div class="bg-stone-50 px-5 py-3 border-b border-stone-200 font-medium text-xs text-stone-700 flex justify-between items-center">
+                <span>Recent Appointment Requests</span>
+                <button onclick="switchAdminTab('bookings')" class="text-brand-gold hover:underline">View All</button>
+              </div>
+              <div class="overflow-x-auto">
+                <table class="w-full text-left text-xs">
+                  <thead class="bg-stone-50/50 text-stone-500 uppercase tracking-wider text-[10px] border-b border-stone-200">
+                    <tr>
+                      <th class="py-2.5 px-4">Ref</th>
+                      <th class="py-2.5 px-4">Client</th>
+                      <th class="py-2.5 px-4">Service</th>
+                      <th class="py-2.5 px-4">Date & Time</th>
+                      <th class="py-2.5 px-4">Status</th>
+                      <th class="py-2.5 px-4 text-right">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="recent-bookings-tbody" class="divide-y divide-stone-100">
+                    <!-- Populated by JS -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- TAB 2: BOOKING MANAGEMENT -->
+          <div id="admin-tab-bookings" class="hidden space-y-6">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div>
+                <h4 class="font-serif text-2xl font-bold text-brand-charcoal">Booking Management</h4>
+                <p class="text-stone-500 text-xs">Filter, confirm, update statuses, or contact guests.</p>
+              </div>
+              
+              <!-- Search & Filter Controls -->
+              <div class="flex flex-wrap items-center gap-2">
+                <input type="text" id="booking-search-input" oninput="filterAdminBookings()" placeholder="Search client / phone..."
+                  class="px-3 py-1.5 rounded-lg border border-stone-200 text-xs outline-none focus:border-brand-gold">
+                <select id="booking-status-filter" onchange="filterAdminBookings()"
+                  class="px-3 py-1.5 rounded-lg border border-stone-200 text-xs outline-none bg-white">
+                  <option value="ALL">All Statuses</option>
+                  <option value="Pending">Pending</option>
+                  <option value="Confirmed">Confirmed</option>
+                  <option value="Completed">Completed</option>
+                  <option value="Cancelled">Cancelled</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Full Bookings Table -->
+            <div class="border border-stone-200 rounded-2xl overflow-hidden shadow-sm">
+              <div class="overflow-x-auto">
+                <table class="w-full text-left text-xs">
+                  <thead class="bg-stone-50 text-stone-500 uppercase tracking-wider text-[10px] border-b border-stone-200">
+                    <tr>
+                      <th class="py-3 px-4">ID & Date</th>
+                      <th class="py-3 px-4">Customer Details</th>
+                      <th class="py-3 px-4">Requested Service</th>
+                      <th class="py-3 px-4">Appointment Slot</th>
+                      <th class="py-3 px-4">Status</th>
+                      <th class="py-3 px-4 text-right">Quick Contact & Status</th>
+                    </tr>
+                  </thead>
+                  <tbody id="all-bookings-tbody" class="divide-y divide-stone-100">
+                    <!-- Populated by JS -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 3: SERVICES MANAGEMENT -->
+          <div id="admin-tab-services" class="hidden space-y-6">
+            <div class="flex justify-between items-center">
+              <div>
+                <h4 class="font-serif text-2xl font-bold text-brand-charcoal">Services & Treatments Catalog</h4>
+                <p class="text-stone-500 text-xs">Add, edit, reorder, or toggle pricing and visibility.</p>
+              </div>
+              <button onclick="openServiceEditModal(null)" class="gold-gradient px-4 py-2 rounded-xl text-white font-medium text-xs flex items-center gap-1.5 shadow-sm">
+                <i class="fa-solid fa-plus"></i> Add New Service
+              </button>
+            </div>
+
+            <!-- Services List Table -->
+            <div class="border border-stone-200 rounded-2xl overflow-hidden shadow-sm">
+              <div class="overflow-x-auto">
+                <table class="w-full text-left text-xs">
+                  <thead class="bg-stone-50 text-stone-500 uppercase tracking-wider text-[10px] border-b border-stone-200">
+                    <tr>
+                      <th class="py-3 px-4">Image</th>
+                      <th class="py-3 px-4">Service Name</th>
+                      <th class="py-3 px-4">Category</th>
+                      <th class="py-3 px-4">Starting Price</th>
+                      <th class="py-3 px-4">Duration</th>
+                      <th class="py-3 px-4">Featured</th>
+                      <th class="py-3 px-4 text-right">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="admin-services-tbody" class="divide-y divide-stone-100">
+                    <!-- Populated by JS -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 4: IMAGE MANAGEMENT (CRITICAL FEATURE) -->
+          <div id="admin-tab-images" class="hidden space-y-6">
+            <div>
+              <h4 class="font-serif text-2xl font-bold text-brand-charcoal">Global Image Management</h4>
+              <p class="text-stone-500 text-xs">Replace any photo throughout the website dynamically without writing code.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              
+              <!-- Slot 1: Hero Banner Image -->
+              <div class="border border-stone-200 p-5 rounded-2xl space-y-3 bg-stone-50/50">
+                <div class="flex justify-between items-center">
+                  <span class="font-serif text-sm font-bold text-brand-charcoal">Hero Banner Background</span>
+                  <span class="text-[10px] bg-brand-gold/20 text-brand-goldDark px-2 py-0.5 rounded-full font-medium">Homepage Main</span>
+                </div>
+                <div class="aspect-video rounded-xl overflow-hidden bg-stone-200 relative group">
+                  <img id="admin-preview-hero" src="" alt="Hero Preview" class="w-full h-full object-cover">
+                </div>
+                <button onclick="openImageReplacerModal('hero')" class="w-full py-2 px-3 rounded-xl border border-brand-gold text-brand-goldDark hover:bg-brand-gold hover:text-white transition-all text-xs font-medium flex items-center justify-center gap-1.5">
+                  <i class="fa-solid fa-arrow-up-from-bracket"></i> Replace Hero Image
+                </button>
+              </div>
+
+              <!-- Slot 2: About Us Salon Image -->
+              <div class="border border-stone-200 p-5 rounded-2xl space-y-3 bg-stone-50/50">
+                <div class="flex justify-between items-center">
+                  <span class="font-serif text-sm font-bold text-brand-charcoal">About Section Interior</span>
+                  <span class="text-[10px] bg-brand-gold/20 text-brand-goldDark px-2 py-0.5 rounded-full font-medium">Story Showcase</span>
+                </div>
+                <div class="aspect-video rounded-xl overflow-hidden bg-stone-200 relative group">
+                  <img id="admin-preview-about" src="" alt="About Preview" class="w-full h-full object-cover">
+                </div>
+                <button onclick="openImageReplacerModal('about')" class="w-full py-2 px-3 rounded-xl border border-brand-gold text-brand-goldDark hover:bg-brand-gold hover:text-white transition-all text-xs font-medium flex items-center justify-center gap-1.5">
+                  <i class="fa-solid fa-arrow-up-from-bracket"></i> Replace About Photo
+                </button>
+              </div>
+
+              <!-- Slot 3: Salon Logo / Brand Emblem -->
+              <div class="border border-stone-200 p-5 rounded-2xl space-y-3 bg-stone-50/50">
+                <div class="flex justify-between items-center">
+                  <span class="font-serif text-sm font-bold text-brand-charcoal">Salon Brand Logo / Emblem</span>
+                  <span class="text-[10px] bg-brand-gold/20 text-brand-goldDark px-2 py-0.5 rounded-full font-medium">Header & Footer</span>
+                </div>
+                <div class="w-24 h-24 mx-auto rounded-full overflow-hidden bg-white border border-stone-200 p-1 flex items-center justify-center">
+                  <img id="admin-preview-logo" src="" alt="Logo Preview" class="w-full h-full object-cover rounded-full">
+                </div>
+                <button onclick="openImageReplacerModal('logo')" class="w-full py-2 px-3 rounded-xl border border-brand-gold text-brand-goldDark hover:bg-brand-gold hover:text-white transition-all text-xs font-medium flex items-center justify-center gap-1.5">
+                  <i class="fa-solid fa-arrow-up-from-bracket"></i> Replace Brand Logo
+                </button>
+              </div>
+
+              <!-- Slot 4: Promotional Special Offers Banner -->
+              <div class="border border-stone-200 p-5 rounded-2xl space-y-3 bg-stone-50/50">
+                <div class="flex justify-between items-center">
+                  <span class="font-serif text-sm font-bold text-brand-charcoal">Quick Quick Link Image Replacer</span>
+                  <span class="text-[10px] bg-brand-gold/20 text-brand-goldDark px-2 py-0.5 rounded-full font-medium">Any Asset</span>
+                </div>
+                <p class="text-xs text-stone-500">You can also replace images on specific services and before/after cards directly inside their dedicated tabs!</p>
+                <div class="pt-4">
+                  <button onclick="switchAdminTab('services')" class="w-full py-2 px-3 rounded-xl bg-stone-200 hover:bg-stone-300 text-stone-800 transition-all text-xs font-medium">
+                    Go to Services Image Editor
+                  </button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- TAB 5: BEFORE & AFTER TRANSFORMATIONS -->
+          <div id="admin-tab-gallery" class="hidden space-y-6">
+            <div class="flex justify-between items-center">
+              <div>
+                <h4 class="font-serif text-2xl font-bold text-brand-charcoal">Before & After Gallery Items</h4>
+                <p class="text-stone-500 text-xs">Upload real customer results with captions and categories.</p>
+              </div>
+              <button onclick="openGalleryAddModal()" class="gold-gradient px-4 py-2 rounded-xl text-white font-medium text-xs flex items-center gap-1.5 shadow-sm">
+                <i class="fa-solid fa-plus"></i> Add Transformation
+              </button>
+            </div>
+
+            <div id="admin-gallery-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+
+          <!-- TAB 6: WEBSITE CONTENT & CONTACT SETTINGS -->
+          <div id="admin-tab-settings" class="hidden space-y-6">
+            <div>
+              <h4 class="font-serif text-2xl font-bold text-brand-charcoal">Salon Profile & Contact Settings</h4>
+              <p class="text-stone-500 text-xs">All changes save instantly to the live storefront.</p>
+            </div>
+
+            <form onsubmit="handleSaveSettings(event)" class="space-y-6">
+              
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-bold text-stone-700 mb-1">Brand Name</label>
+                  <input type="text" id="setting-brand-name" class="w-full px-3 py-2 rounded-lg border border-stone-200 text-xs outline-none focus:border-brand-gold">
+                </div>
+                <div>
+                  <label class="block text-xs font-bold text-stone-700 mb-1">Phone Number (Click to call)</label>
+                  <input type="text" id="setting-phone" class="w-full px-3 py-2 rounded-lg border border-stone-200 text-xs outline-none focus:border-brand-gold">
+                </div>
+                <div>
+                  <label class="block text-xs font-bold text-stone-700 mb-1">WhatsApp Concierge Number (Digits only, with country code)</label>
+                  <input type="text" id="setting-whatsapp" placeholder="e.g. 15552345678" class="w-full px-3 py-2 rounded-lg border border-stone-200 text-xs outline-none focus:border-brand-gold">
+                </div>
+                <div>
+                  <label class="block text-xs font-bold text-stone-700 mb-1">Contact Email</label>
+                  <input type="email" id="setting-email" class="w-full px-3 py-2 rounded-lg border border-stone-200 text-xs outline-none focus:border-brand-gold">
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold text-stone-700 mb-1">Studio Physical Address</label>
+                <input type="text" id="setting-address" class="w-full px-3 py-2 rounded-lg border border-stone-200 text-xs outline-none focus:border-brand-gold">
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-bold text-stone-700 mb-1">Weekday Hours (Tue - Fri)</label>
+                  <input type="text" id="setting-hours-weekday" class="w-full px-3 py-2 rounded-lg border border-stone-200 text-xs outline-none focus:border-brand-gold">
+                </div>
+                <div>
+                  <label class="block text-xs font-bold text-stone-700 mb-1">Weekend Hours (Sat - Sun)</label>
+                  <input type="text" id="setting-hours-weekend" class="w-full px-3 py-2 rounded-lg border border-stone-200 text-xs outline-none focus:border-brand-gold">
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold text-stone-700 mb-1">Hero Main Headline</label>
+                <input type="text" id="setting-hero-headline" class="w-full px-3 py-2 rounded-lg border border-stone-200 text-xs outline-none focus:border-brand-gold">
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold text-stone-700 mb-1">Hero Supporting Subtitle</label>
+                <textarea id="setting-hero-subtext" rows="2" class="w-full px-3 py-2 rounded-lg border border-stone-200 text-xs outline-none focus:border-brand-gold"></textarea>
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold text-stone-700 mb-1">About Us Mission & Brand Story</label>
+                <textarea id="setting-about-text" rows="3" class="w-full px-3 py-2 rounded-lg border border-stone-200 text-xs outline-none focus:border-brand-gold"></textarea>
+              </div>
+
+              <div class="flex justify-end pt-4">
+                <button type="submit" class="gold-gradient px-6 py-2.5 rounded-xl text-white font-semibold text-xs uppercase tracking-wider shadow-md hover:brightness-105 transition-all">
+                  Save Changes to Live Website
+                </button>
+              </div>
+
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Image Replacer Modal Dialog -->
+  <div id="image-replacer-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/75 backdrop-blur-sm p-4">
+    <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-brand-gold/30 relative">
+      <div class="flex justify-between items-center mb-4">
+        <h3 class="font-serif text-xl font-bold text-brand-charcoal" id="replacer-modal-title">Replace Image</h3>
+        <button onclick="closeImageReplacerModal()" class="text-stone-400 hover:text-stone-700 text-xl">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="space-y-4">
+        <!-- Live Preview Box -->
+        <div>
+          <label class="block text-xs font-bold text-stone-600 mb-1">Preview</label>
+          <div class="aspect-video w-full rounded-xl overflow-hidden bg-stone-100 border border-stone-300 relative flex items-center justify-center">
+            <img id="replacer-preview-target" src="" alt="Preview" class="max-h-full max-w-full object-contain">
+          </div>
+        </div>
+
+        <!-- File Upload or Direct URL -->
+        <div>
+          <label class="block text-xs font-bold text-stone-600 mb-1">Select File from Device</label>
+          <input type="file" id="replacer-file-input" accept="image/*" onchange="handleImageFileSelected(event)"
+            class="block w-full text-xs text-stone-500 file:mr-3 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-brand-roseSoft file:text-brand-goldDark hover:file:bg-brand-gold/20 cursor-pointer">
+        </div>
+
+        <div>
+          <div class="flex items-center my-2">
+            <div class="flex-grow border-t border-stone-200"></div>
+            <span class="flex-shrink mx-3 text-[10px] text-stone-400 uppercase tracking-widest">or image url</span>
+            <div class="flex-grow border-t border-stone-200"></div>
+          </div>
+          <input type="url" id="replacer-url-input" oninput="handleImageUrlInput(this.value)" placeholder="https://images.unsplash.com/..."
+            class="w-full px-3 py-2 rounded-xl border border-stone-200 text-xs outline-none focus:border-brand-gold">
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-stone-600 mb-1">Alt Text (Accessibility & SEO)</label>
+          <input type="text" id="replacer-alt-input" placeholder="e.g. Luxurious facial treatment room"
+            class="w-full px-3 py-2 rounded-xl border border-stone-200 text-xs outline-none focus:border-brand-gold">
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex justify-end gap-3 pt-3 border-t border-stone-200">
+          <button onclick="closeImageReplacerModal()" class="px-4 py-2 rounded-xl border border-stone-300 text-xs font-medium text-stone-600 hover:bg-stone-100">
+            Cancel
+          </button>
+          <button onclick="applyImageReplacement()" class="gold-gradient px-5 py-2 rounded-xl text-white text-xs font-semibold shadow-sm hover:brightness-105">
+            Save Image
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Service Editor Modal -->
+  <div id="service-edit-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/75 backdrop-blur-sm p-4">
+    <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-brand-gold/30 relative max-h-[90vh] overflow-y-auto">
+      <div class="flex justify-between items-center mb-4">
+        <h3 class="font-serif text-xl font-bold text-brand-charcoal" id="service-modal-title">Service Details</h3>
+        <button onclick="closeServiceEditModal()" class="text-stone-400 hover:text-stone-700 text-xl">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <form onsubmit="handleSaveServiceForm(event)" class="space-y-4">
+        <input type="hidden" id="service-edit-id">
+
+        <div>
+          <label class="block text-xs font-bold text-stone-700 mb-1">Service Name</label>
+          <input type="text" id="service-edit-name" required class="w-full px-3 py-2 rounded-xl border border-stone-200 text-xs outline-none focus:border-brand-gold">
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-stone-700 mb-1">Category</label>
+            <select id="service-edit-category" class="w-full px-3 py-2 rounded-xl border border-stone-200 text-xs outline-none bg-white">
+              <option value="Hair">Hair Styling & Care</option>
+              <option value="Facial">Facial & Skincare</option>
+              <option value="Makeup">Makeup Artistry</option>
+              <option value="Bridal">Bridal Packages</option>
+              <option value="Nails">Nails & Pedicure</option>
+              <option value="Wellness">Body & Spa</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-stone-700 mb-1">Starting Price (e.g. $65)</label>
+            <input type="text" id="service-edit-price" required class="w-full px-3 py-2 rounded-xl border border-stone-200 text-xs outline-none focus:border-brand-gold">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-stone-700 mb-1">Duration (e.g. 60 min)</label>
+            <input type="text" id="service-edit-duration" placeholder="e.g. 45-60 min" class="w-full px-3 py-2 rounded-xl border border-stone-200 text-xs outline-none focus:border-brand-gold">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-stone-700 mb-1">Featured on Homepage?</label>
+            <select id="service-edit-featured" class="w-full px-3 py-2 rounded-xl border border-stone-200 text-xs outline-none bg-white">
+              <option value="true">Yes (Show Offer Badge)</option>
+              <option value="false">No (Standard Catalog)</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-stone-700 mb-1">Service Card Image URL or File</label>
+          <div class="flex gap-2">
+            <input type="url" id="service-edit-image" placeholder="https://..." class="flex-1 px-3 py-2 rounded-xl border border-stone-200 text-xs outline-none focus:border-brand-gold">
+            <label class="px-3 py-2 rounded-xl bg-stone-100 hover:bg-stone-200 text-xs font-medium cursor-pointer text-stone-700">
+              Browse
+              <input type="file" accept="image/*" onchange="handleServiceImageUpload(event)" class="hidden">
+            </label>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-stone-700 mb-1">Description</label>
+          <textarea id="service-edit-desc" rows="3" required class="w-full px-3 py-2 rounded-xl border border-stone-200 text-xs outline-none focus:border-brand-gold"></textarea>
+        </div>
+
+        <div class="flex justify-end gap-3 pt-3 border-t border-stone-200">
+          <button type="button" onclick="closeServiceEditModal()" class="px-4 py-2 rounded-xl border border-stone-300 text-xs font-medium text-stone-600">Cancel</button>
+          <button type="submit" class="gold-gradient px-5 py-2 rounded-xl text-white text-xs font-semibold">Save Service</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Transformation Add Modal -->
+  <div id="gallery-add-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/75 backdrop-blur-sm p-4">
+    <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl border border-brand-gold/30 relative">
+      <div class="flex justify-between items-center mb-4">
+        <h3 class="font-serif text-xl font-bold text-brand-charcoal">Add Transformation Photo</h3>
+        <button onclick="closeGalleryAddModal()" class="text-stone-400 hover:text-stone-700 text-xl"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <form onsubmit="handleSaveGalleryItem(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-bold text-stone-700 mb-1">Caption / Treatment Title</label>
+          <input type="text" id="gallery-add-caption" required placeholder="e.g. Balayage & Botanical Gloss" class="w-full px-3 py-2 rounded-xl border border-stone-200 text-xs outline-none">
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-stone-700 mb-1">Category</label>
+          <select id="gallery-add-category" class="w-full px-3 py-2 rounded-xl border border-stone-200 text-xs outline-none bg-white">
+            <option value="Hair">Hair Makeover</option>
+            <option value="Facial">Facial & Glow</option>
+            <option value="Bridal">Bridal Elegance</option>
+            <option value="Nails">Nail Architecture</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-stone-700 mb-1">Image URL or Local Upload</label>
+          <div class="flex gap-2">
+            <input type="url" id="gallery-add-image" required placeholder="https://..." class="flex-1 px-3 py-2 rounded-xl border border-stone-200 text-xs outline-none">
+            <label class="px-3 py-2 rounded-xl bg-stone-100 hover:bg-stone-200 text-xs font-medium cursor-pointer text-stone-700">
+              Browse
+              <input type="file" accept="image/*" onchange="handleGalleryImageUpload(event)" class="hidden">
+            </label>
+          </div>
+        </div>
+        <div class="flex justify-end gap-3 pt-3 border-t border-stone-200">
+          <button type="button" onclick="closeGalleryAddModal()" class="px-4 py-2 rounded-xl border border-stone-300 text-xs font-medium text-stone-600">Cancel</button>
+          <button type="submit" class="gold-gradient px-5 py-2 rounded-xl text-white text-xs font-semibold">Add to Gallery</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- FRONTEND APPLICATION CONTROLLER & LOGIC SCRIPT                            -->
+  <!-- ========================================================================= -->
+  <script>
+    /**
+     * Default state containing authentic editorial images, verified services,
+     * customizable salon info, and booking management queue.
+     */
+    const INITIAL_STATE = {
+      settings: {
+        brandName: "N N PERFECT BEAUTY",
+        tagline: "High-End Salon & Spa Studio",
+        phone: "+1 (234) 567-890",
+        phoneClean: "+1234567890",
+        whatsapp: "1234567890", // Configurable WhatsApp receiver
+        email: "concierge@nnperfectbeauty.com",
+        address: "Luxury Suite 4B, Haute Promenade, Beauty Boulevard, Metropolis",
+        googleMapsLink: "https://maps.google.com",
+        hoursWeekday: "10:00 AM - 8:00 PM",
+        hoursWeekend: "09:30 AM - 7:30 PM",
+        heroHeadline: "Your Beauty. Your Confidence. Your Perfect Look.",
+        heroSubtext: "Discover personalized beauty services designed to help you look and feel your absolute best with our certified master stylists and aesthetic professionals.",
+        aboutTitle: "Crafting Personalized Elegance Since Day One",
+        aboutStory: "At N N PERFECT BEAUTY, we believe true beauty is an effortless extension of your individual personality. We step away from one-size-fits-all beauty routines to provide an intimate sanctuary where artistry meets wellness.\n\nOur specialists participate regularly in masterclasses to remain at the cutting edge of balayage techniques, keratin treatments, organic hydra-facials, and celebratory bridal transformations.",
+        logoUrl: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=120&auto=format&fit=crop&q=80",
+        heroImageUrl: "https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1920&q=80",
+        aboutImageUrl: "https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=900&q=80",
+        instagramUrl: "https://instagram.com",
+        facebookUrl: "https://facebook.com"
+      },
+      services: [
+        {
+          id: "srv-1",
+          name: "Signature Balayage & Gloss",
+          category: "Hair",
+          price: "$145",
+          duration: "120 min",
+          description: "Custom hand-painted highlights tailored to accentuate your skin tone, followed by an organic shine glaze and blowout.",
+          image: "https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=700&q=80",
+          featured: true,
+          badge: "Best Seller",
+          visible: true
+        },
+        {
+          id: "srv-2",
+          name: "Gold Radiance Hydra-Facial",
+          category: "Facial",
+          price: "$120",
+          duration: "75 min",
+          description: "Multi-step deep pore vacuum infusion, gentle lactic peeling, and 24K nano-gold collagen sheet restoration.",
+          image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=700&q=80",
+          featured: true,
+          badge: "Special Offer",
+          visible: true
+        },
+        {
+          id: "srv-3",
+          name: "Couture Bridal Glamour",
+          category: "Bridal",
+          price: "$280",
+          duration: "150 min",
+          description: "Full red-carpet bridal contouring, waterproof airbrush HD makeup, bespoke lash fitting, and veil placement.",
+          image: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=700&q=80",
+          featured: true,
+          badge: "Verified Package",
+          visible: true
+        },
+        {
+          id: "srv-4",
+          name: "Precision Sculpt Cut & Silk Press",
+          category: "Hair",
+          price: "$75",
+          duration: "60 min",
+          description: "Facial structure assessment, relaxing scalp massage, precision shears cut, and heat-protective silk finish.",
+          image: "https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=700&q=80",
+          featured: false,
+          badge: "",
+          visible: true
+        },
+        {
+          id: "srv-5",
+          name: "Luxury Russian Gel Manicure",
+          category: "Nails",
+          price: "$65",
+          duration: "50 min",
+          description: "E-file meticulous cuticle dry manicure, apex architectural gel strengthening, and chip-free gloss enamel.",
+          image: "https://images.unsplash.com/photo-1632345031435-8727f6897d53?auto=format&fit=crop&w=700&q=80",
+          featured: false,
+          badge: "",
+          visible: true
+        },
+        {
+          id: "srv-6",
+          name: "Aromatherapy Body Polish & Wrap",
+          category: "Wellness",
+          price: "$110",
+          duration: "80 min",
+          description: "Warm botanical seed oil scrub followed by botanical detoxification cocoon wrap and lymphatic massage.",
+          image: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=700&q=80",
+          featured: false,
+          badge: "",
+          visible: true
+        }
+      ],
+      gallery: [
+        {
+          id: "gal-1",
+          caption: "Caramel Dimensional Balayage Makeover",
+          category: "Hair",
+          imageUrl: "https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=800&q=80"
+        },
+        {
+          id: "gal-2",
+          caption: "Clear Complexion Herbal Peel Rejuvenation",
+          category: "Facial",
+          imageUrl: "https://images.unsplash.com/photo-1512290900672-1f41d99432f9?auto=format&fit=crop&w=800&q=80"
+        },
+        {
+          id: "gal-3",
+          caption: "Royal Cathedral Bridal Aesthetic",
+          category: "Bridal",
+          imageUrl: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=800&q=80"
+        },
+        {
+          id: "gal-4",
+          caption: "Architectural Almond Nail Art",
+          category: "Nails",
+          imageUrl: "https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=800&q=80"
+        },
+        {
+          id: "gal-5",
+          caption: "Soft Velvet Evening Makeover",
+          category: "Makeup",
+          imageUrl: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80"
+        },
+        {
+          id: "gal-6",
+          caption: "Silk Restorative Botanical Hair Gloss",
+          category: "Hair",
+          imageUrl: "https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=800&q=80"
+        }
+      ],
+      reviews: [
+        {
+          id: "rev-1",
+          author: "Sophia Sterling",
+          rating: 5,
+          text: "N N PERFECT BEAUTY is an absolute masterclass in elegance. My balayage blends seamlessly, and the private atmosphere made me feel like royalty.",
+          treatment: "Signature Balayage & Gloss",
+          date: "Verified Visit"
+        },
+        {
+          id: "rev-2",
+          author: "Catherine DeWitt",
+          rating: 5,
+          text: "The 24K Gold Hydra-Facial transformed my skin before my sister's wedding. Completely painless extractions and luminous results that lasted for weeks.",
+          treatment: "Gold Radiance Hydra-Facial",
+          date: "Verified Visit"
+        },
+        {
+          id: "rev-3",
+          author: "Mira Al-Mansoor",
+          rating: 5,
+          text: "Hands down the most professional bridal team in the city. They were punctual, calm, and executed my vision beyond my wildest expectations!",
+          treatment: "Couture Bridal Glamour",
+          date: "Verified Visit"
+        }
+      ],
+      bookings: [
+        {
+          id: "NNB-84920",
+          name: "Amelia Thorne",
+          phone: "+1 (555) 432-8921",
+          whatsapp: "+1 (555) 432-8921",
+          service: "Signature Balayage & Gloss",
+          date: "2026-09-24",
+          time: "11:30 AM",
+          notes: "Sensitive scalp, prefers organic ammonia-free toners.",
+          status: "Pending",
+          createdAt: "2026-09-22 14:15"
+        },
+        {
+          id: "NNB-84921",
+          name: "Helena Rostova",
+          phone: "+1 (555) 987-1234",
+          whatsapp: "",
+          service: "Gold Radiance Hydra-Facial",
+          date: "2026-09-25",
+          time: "02:30 PM",
+          notes: "First time visit.",
+          status: "Confirmed",
+          createdAt: "2026-09-22 15:30"
+        }
+      ],
+      activeCategory: "ALL",
+      activeGalleryCategory: "ALL",
+      activeReplacerSlot: null,
+      tempImageBase64: null,
+      isAdminAuthenticated: false
+    };
+
+    // Load persisted state or fallback
+    let state = loadPersistedState();
+
+    function loadPersistedState() {
+      try {
+        const stored = localStorage.getItem('NN_PERFECT_BEAUTY_DATA');
+        if (stored) {
+          const parsed = JSON.parse(stored);
+          // Merge to ensure no missing keys
+          return {
+            ...INITIAL_STATE,
+            ...parsed,
+            settings: { ...INITIAL_STATE.settings, ...parsed.settings },
+            isAdminAuthenticated: false // Require login per session
+          };
+        }
+      } catch (e) {
+        console.warn("Storage access restricted, using memory state:", e);
+      }
+      return { ...INITIAL_STATE };
+    }
+
+    function saveState() {
+      try {
+        localStorage.setItem('NN_PERFECT_BEAUTY_DATA', JSON.stringify({
+          settings: state.settings,
+          services: state.services,
+          gallery: state.gallery,
+          reviews: state.reviews,
+          bookings: state.bookings
+        }));
+      } catch (e) {
+        console.warn("Unable to save state:", e);
+      }
+    }
+
+    /**
+     * Initializes all views and mounts data on DOM ready
+     */
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('current-year').textContent = new Date().getFullYear();
+      
+      // Initial render calls
+      renderAllStorefrontContent();
+      renderServiceCategoryFilterButtons();
+      renderGalleryCategoryFilterButtons();
+      populateBookingServiceDropdown();
+      updateDashboardMetrics();
+      
+      // Set min date on datepicker to today
+      const todayIso = new Date().toISOString().split('T')[0];
+      const datePicker = document.getElementById('booking-date');
+      if (datePicker) {
+        datePicker.min = todayIso;
+        datePicker.value = todayIso;
+      }
+    });
+
+    /**
+     * Updates all public storefront elements based on state.settings
+     */
+    function renderAllStorefrontContent() {
+      const s = state.settings;
+
+      // Brand headers & text
+      document.title = `${s.brandName} | Luxury Salon & Spa Studio`;
+      document.getElementById('site-brand-title').textContent = s.brandName;
+      document.getElementById('top-address').textContent = s.address;
+      document.getElementById('contact-address').textContent = s.address;
+      document.getElementById('footer-address').textContent = s.address;
+      
+      document.getElementById('top-hours').textContent = `Tue - Sun: ${s.hoursWeekday}`;
+      document.getElementById('hours-weekday').textContent = s.hoursWeekday;
+      document.getElementById('hours-weekend').textContent = s.hoursWeekend;
+
+      document.getElementById('top-phone').textContent = s.phone;
+      document.getElementById('top-phone-link').href = `tel:${s.phoneClean || s.phone}`;
+      document.getElementById('contact-phone-display').textContent = s.phone;
+      document.getElementById('contact-phone-btn').href = `tel:${s.phoneClean || s.phone}`;
+      document.getElementById('footer-phone').textContent = s.phone;
+      document.getElementById('footer-phone').href = `tel:${s.phoneClean || s.phone}`;
+
+      document.getElementById('footer-email').textContent = s.email;
+      document.getElementById('footer-email').href = `mailto:${s.email}`;
+
+      // Hero
+      document.getElementById('hero-headline').innerHTML = formatHeroHeadline(s.heroHeadline);
+      document.getElementById('hero-subtext').textContent = s.heroSubtext;
+      document.getElementById('hero-bg-img').src = s.heroImageUrl;
+
+      // About
+      document.getElementById('about-title').textContent = s.aboutTitle;
+      document.getElementById('about-story-text').innerHTML = s.aboutStory.split('\n\n').map(p => `<p>${p}</p>`).join('');
+      document.getElementById('about-image-main').src = s.aboutImageUrl;
+
+      // Logo
+      document.getElementById('site-logo').src = s.logoUrl;
+      document.getElementById('footer-logo').src = s.logoUrl;
+
+      // Social Links
+      document.getElementById('link-instagram').href = s.instagramUrl;
+      document.getElementById('footer-ig').href = s.instagramUrl;
+      document.getElementById('link-facebook').href = s.facebookUrl;
+      document.getElementById('footer-fb').href = s.facebookUrl;
+
+      // WhatsApp Dynamic Links
+      const waNumber = s.whatsapp.replace(/\D/g, '');
+      const generalWaUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(`Hello ${s.brandName}, I would like to inquire about booking an appointment.`)}`;
+      
+      document.getElementById('nav-whatsapp-btn').href = generalWaUrl;
+      document.getElementById('mobile-whatsapp-btn').href = generalWaUrl;
+      document.getElementById('contact-whatsapp-btn').href = generalWaUrl;
+      document.getElementById('floating-whatsapp-btn').href = generalWaUrl;
+      document.getElementById('footer-wa').href = generalWaUrl;
+
+      // Render catalogs
+      renderServicesGrid();
+      renderFeaturedOffersGrid();
+      renderGalleryGrid();
+      renderReviewsGrid();
+    }
+
+    function formatHeroHeadline(raw) {
+      if (!raw) return "Your Beauty. Your Confidence. <span class='block gold-gradient-text italic font-normal'>Your Perfect Look.</span>";
+      // Split into main sentence and emphasize final clause
+      const parts = raw.split('.');
+      if (parts.length >= 3) {
+        return `${parts[0]}. ${parts[1]}. <span class="block gold-gradient-text italic font-normal">${parts[2]}.</span>`;
+      }
+      return raw;
+    }
+
+    function renderServiceCategoryFilterButtons() {
+      const container = document.getElementById('service-category-filters');
+      const categories = ['ALL', 'Hair', 'Facial', 'Makeup', 'Bridal', 'Nails', 'Wellness'];
+      
+      container.innerHTML = categories.map(cat => {
+        const isActive = state.activeCategory === cat;
+        return `
+          <button onclick="setServiceCategory('${cat}')" 
+                  class="px-4 py-2 rounded-full text-xs font-semibold tracking-wider transition-all duration-300 ${
+                    isActive 
+                      ? 'gold-gradient text-white shadow-sm' 
+                      : 'bg-white text-stone-600 hover:bg-stone-200 border border-stone-200'
+                  }">
+            ${cat === 'ALL' ? 'All Services' : cat}
+          </button>
+        `;
+      }).join('');
+    }
+
+    function setServiceCategory(cat) {
+      state.activeCategory = cat;
+      renderServiceCategoryFilterButtons();
+      renderServicesGrid();
+    }
+
+    function renderServicesGrid() {
+      const grid = document.getElementById('services-grid');
+      const filtered = state.services.filter(srv => {
+        if (!srv.visible) return false;
+        if (state.activeCategory === 'ALL') return true;
+        return srv.category === state.activeCategory;
+      });
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `
+          <div class="col-span-full py-12 text-center text-stone-500">
+            <i class="fa-regular fa-folder-open text-3xl mb-2 text-brand-gold"></i>
+            <p class="text-sm">No services listed in this category right now.</p>
+          </div>
+        `;
+        return;
+      }
+
+      grid.innerHTML = filtered.map(srv => `
+        <div class="bg-white rounded-3xl overflow-hidden border border-brand-gold/20 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group hover:-translate-y-1">
+          <!-- Card Image Header -->
+          <div class="relative h-64 overflow-hidden bg-stone-100">
+            <img src="${srv.image}" alt="${srv.name}" 
+                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                 onerror="this.src='https://placehold.co/600x400/FAF8F5/C5A059?text=Treatment'">
+            <div class="absolute top-4 left-4 bg-brand-charcoal/85 backdrop-blur-md text-brand-champagne px-3 py-1 rounded-full text-[11px] font-semibold tracking-wider uppercase border border-brand-gold/30">
+              ${srv.category}
+            </div>
+            ${srv.badge ? `
+              <div class="absolute top-4 right-4 bg-amber-500 text-white px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider shadow">
+                ${srv.badge}
+              </div>
+            ` : ''}
+          </div>
+
+          <!-- Card Body -->
+          <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-baseline justify-between gap-2 mb-2">
+                <h3 class="font-serif text-xl sm:text-2xl font-bold text-brand-charcoal group-hover:text-brand-gold transition-colors">${srv.name}</h3>
+                <span class="font-serif text-lg font-bold text-brand-goldDark flex-shrink-0">${srv.price}</span>
+              </div>
+              <p class="text-stone-600 text-xs sm:text-sm leading-relaxed mb-4">
+                ${srv.description}
+              </p>
+            </div>
+
+            <!-- Footer Details & CTAs -->
+            <div class="pt-4 border-t border-stone-100 flex items-center justify-between gap-3">
+              <span class="text-[11px] text-stone-400 flex items-center gap-1">
+                <i class="fa-regular fa-clock"></i> ${srv.duration || 'Flexible'}
+              </span>
+              <div class="flex items-center gap-2">
+                <button onclick="prefillBookingService('${srv.name.replace(/'/g, "\\'")}')" 
+                        class="gold-gradient px-4 py-2 rounded-full text-white text-xs font-semibold tracking-wider hover:brightness-105 transition-all shadow-sm">
+                  Book This
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function renderFeaturedOffersGrid() {
+      const grid = document.getElementById('featured-offers-grid');
+      const featured = state.services.filter(s => s.featured && s.visible);
+
+      if (featured.length === 0) {
+        grid.innerHTML = `<p class="col-span-full text-center text-stone-400 text-sm">No promotional packages active today. Inquire with our desk for custom packages.</p>`;
+        return;
+      }
+
+      grid.innerHTML = featured.map(offer => `
+        <div class="bg-brand-cardDark rounded-3xl overflow-hidden border border-brand-gold/30 shadow-lg hover:border-brand-gold transition-all duration-300 flex flex-col group">
+          <div class="relative h-56 overflow-hidden">
+            <img src="${offer.image}" alt="${offer.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-cardDark via-transparent to-transparent"></div>
+            <div class="absolute bottom-3 left-4 bg-brand-gold text-brand-charcoal px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider">
+              ${offer.badge || 'Verified Privilege'}
+            </div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-baseline justify-between mb-2">
+                <h3 class="font-serif text-xl font-bold text-white">${offer.name}</h3>
+                <span class="font-serif text-lg font-bold text-brand-champagne">${offer.price}</span>
+              </div>
+              <p class="text-stone-300 text-xs leading-relaxed mb-6">${offer.description}</p>
+            </div>
+            <div class="flex items-center justify-between gap-3 pt-3 border-t border-stone-800">
+              <span class="text-[11px] text-stone-400">Duration: ${offer.duration || '60 min'}</span>
+              <button onclick="prefillBookingService('${offer.name.replace(/'/g, "\\'")}')" class="gold-gradient text-white text-xs font-semibold px-4 py-2 rounded-full hover:brightness-110 transition-all">
+                Book Special
+              </button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function renderGalleryCategoryFilterButtons() {
+      const container = document.getElementById('gallery-category-filters');
+      const cats = ['ALL', 'Hair', 'Facial', 'Bridal', 'Nails', 'Makeup'];
+      container.innerHTML = cats.map(c => `
+        <button onclick="setGalleryCategory('${c}')" 
+                class="px-4 py-2 rounded-full text-xs font-semibold tracking-wider transition-all duration-300 ${
+                  state.activeGalleryCategory === c 
+                    ? 'gold-gradient text-white shadow-sm' 
+                    : 'bg-white text-stone-600 hover:bg-stone-200 border border-stone-200'
+                }">
+          ${c === 'ALL' ? 'All Results' : c}
+        </button>
+      `).join('');
+    }
+
+    function setGalleryCategory(cat) {
+      state.activeGalleryCategory = cat;
+      renderGalleryCategoryFilterButtons();
+      renderGalleryGrid();
+    }
+
+    function renderGalleryGrid() {
+      const grid = document.getElementById('gallery-grid');
+      const filtered = state.gallery.filter(item => {
+        if (state.activeGalleryCategory === 'ALL') return true;
+        return item.category === state.activeGalleryCategory;
+      });
+
+      grid.innerHTML = filtered.map(item => `
+        <div onclick="openLightbox('${item.imageUrl}', '${item.caption.replace(/'/g, "\\'")}', '${item.category}')" 
+             class="group relative aspect-square rounded-3xl overflow-hidden cursor-pointer shadow-md bg-stone-200 border border-brand-gold/20">
+          <img src="${item.imageUrl}" alt="${item.caption}" 
+               class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+               onerror="this.src='https://placehold.co/600x600/FAF8F5/C5A059?text=Transformation'">
+          
+          <div class="absolute inset-0 bg-gradient-to-t from-brand-charcoal/90 via-brand-charcoal/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+            <span class="text-[11px] uppercase tracking-widest text-brand-champagne font-bold">${item.category}</span>
+            <h4 class="font-serif text-lg font-bold text-white mt-1">${item.caption}</h4>
+            <div class="mt-3 flex items-center gap-2 text-white text-xs font-semibold">
+              <span>View Full Look</span>
+              <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-brand-champagne"></i>
+            </div>
+          </div>
+
+          <div class="absolute top-4 right-4 bg-brand-charcoal/60 backdrop-blur-md text-white w-9 h-9 rounded-full flex items-center justify-center opacity-70 group-hover:opacity-100 transition-opacity">
+            <i class="fa-solid fa-expand text-xs"></i>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function openLightbox(url, caption, category) {
+      document.getElementById('lightbox-img').src = url;
+      document.getElementById('lightbox-caption').textContent = caption;
+      document.getElementById('lightbox-category').textContent = category;
+      const modal = document.getElementById('lightbox-modal');
+      modal.classList.add('modal-active');
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox-modal').classList.remove('modal-active');
+    }
+
+    function renderReviewsGrid() {
+      const grid = document.getElementById('reviews-grid');
+      grid.innerHTML = state.reviews.map(rev => `
+        <div class="bg-white p-8 rounded-3xl border border-brand-gold/20 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-1 text-brand-gold mb-4">
+              ${'<i class="fa-solid fa-star text-xs"></i>'.repeat(rev.rating)}
+            </div>
+            <p class="font-serif italic text-stone-700 text-base leading-relaxed mb-6">
+              "${rev.text}"
+            </p>
+          </div>
+          <div class="pt-4 border-t border-stone-100 flex items-center justify-between">
+            <div>
+              <h4 class="font-serif text-sm font-bold text-brand-charcoal">${rev.author}</h4>
+              <span class="text-[11px] text-stone-400">${rev.treatment}</span>
+            </div>
+            <span class="text-[10px] bg-emerald-50 text-emerald-700 font-semibold px-2 py-0.5 rounded-full border border-emerald-200">
+              <i class="fa-solid fa-circle-check text-[9px] mr-1"></i>${rev.date}
+            </span>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function populateBookingServiceDropdown() {
+      const select = document.getElementById('booking-service');
+      if (!select) return;
+      
+      const currentVal = select.value;
+      const options = state.services
+        .filter(s => s.visible)
+        .map(s => `<option value="${s.name}">${s.name} (${s.price})</option>`)
+        .join('');
+      
+      select.innerHTML = `<option value="" disabled selected>Choose a beauty treatment...</option>` + options;
+      if (currentVal) select.value = currentVal;
+    }
+
+    function prefillBookingService(serviceName) {
+      const select = document.getElementById('booking-service');
+      if (select) {
+        select.value = serviceName;
+      }
+      const bookingSec = document.getElementById('booking');
+      if (bookingSec) {
+        bookingSec.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    function handleBookingSubmit(event) {
+      event.preventDefault();
+      
+      const name = document.getElementById('booking-name').value.trim();
+      const phone = document.getElementById('booking-phone').value.trim();
+      const whatsapp = document.getElementById('booking-whatsapp').value.trim();
+      const service = document.getElementById('booking-service').value;
+      const date = document.getElementById('booking-date').value;
+      const time = document.getElementById('booking-time').value;
+      const notes = document.getElementById('booking-notes').value.trim();
+
+      if (!name || !phone || !service || !date || !time) {
+        alertModal("Please complete all required fields (Name, Phone, Service, Date, Time).");
+        return;
+      }
+
+      const bookingRef = 'NNB-' + Math.floor(10000 + Math.random() * 90000);
+      const newBooking = {
+        id: bookingRef,
+        name,
+        phone,
+        whatsapp,
+        service,
+        date,
+        time,
+        notes,
+        status: 'Pending',
+        createdAt: new Date().toISOString().replace('T', ' ').substring(0, 16)
+      };
+
+      // Push to scheduling queue
+      state.bookings.unshift(newBooking);
+      saveState();
+      updateDashboardMetrics();
+
+      // Show confirmation modal with WhatsApp deep link
+      document.getElementById('success-customer-name').textContent = name;
+      document.getElementById('success-ref-id').textContent = bookingRef;
+      document.getElementById('success-service-name').textContent = service;
+      document.getElementById('success-slot-time').textContent = `${date} at ${time}`;
+
+      // Build WhatsApp Pre-filled payload
+      const waNumber = state.settings.whatsapp.replace(/\D/g, '');
+      const waMsg = `Hello ${state.settings.brandName},\nI would like to book an appointment.\nRef: ${bookingRef}\nService: ${service}\nDate: ${date}\nTime: ${time}\nName: ${name}\nPhone: ${phone}${notes ? `\nNote: ${notes}` : ''}`;
+      
+      const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(waMsg)}`;
+      document.getElementById('success-whatsapp-link').href = waUrl;
+
+      // Reset form
+      document.getElementById('appointment-form').reset();
+      populateBookingServiceDropdown();
+
+      // Open Modal
+      document.getElementById('booking-success-modal').classList.add('modal-active');
+    }
+
+    function closeBookingModal() {
+      document.getElementById('booking-success-modal').classList.remove('modal-active');
+    }
+
+    function submitDirectToWhatsApp() {
+      const name = document.getElementById('booking-name').value.trim() || "Guest";
+      const service = document.getElementById('booking-service').value || "Bespoke Treatment Consultation";
+      const date = document.getElementById('booking-date').value || "Next Available";
+      const time = document.getElementById('booking-time').value || "Preferred Slot";
+      const phone = document.getElementById('booking-phone').value.trim();
+
+      const waNumber = state.settings.whatsapp.replace(/\D/g, '');
+      const msg = `Hello ${state.settings.brandName},\nI would like to book an appointment directly.\nService: ${service}\nPreferred Date: ${date}\nPreferred Time: ${time}\nName: ${name}${phone ? `\nPhone: ${phone}` : ''}`;
+      
+      window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    function openAdminModal() {
+      const modal = document.getElementById('admin-modal');
+      modal.classList.add('modal-active');
+      
+      if (state.isAdminAuthenticated) {
+        showAdminWorkspace();
+      } else {
+        document.getElementById('admin-login-view').classList.remove('hidden');
+        document.getElementById('admin-workspace-view').classList.add('hidden');
+      }
+    }
+
+    function closeAdminModal() {
+      document.getElementById('admin-modal').classList.remove('modal-active');
+    }
+
+    function handleAdminLogin(e) {
+      e.preventDefault();
+      const pwd = document.getElementById('admin-password-input').value;
+      if (pwd === 'admin123' || pwd === 'salonowner') {
+        state.isAdminAuthenticated = true;
+        document.getElementById('admin-password-input').value = '';
+        showAdminWorkspace();
+      } else {
+        alertModal("Incorrect management passcode. Use 'admin123' for preview access.");
+      }
+    }
+
+    function handleAdminLogout() {
+      state.isAdminAuthenticated = false;
+      document.getElementById('admin-login-view').classList.remove('hidden');
+      document.getElementById('admin-workspace-view').classList.add('hidden');
+    }
+
+    function showAdminWorkspace() {
+      document.getElementById('admin-login-view').classList.add('hidden');
+      document.getElementById('admin-workspace-view').classList.remove('hidden');
+      document.getElementById('admin-workspace-view').classList.add('flex');
+      
+      // Load views
+      switchAdminTab('dashboard');
+      populateAdminSettingsForm();
+      renderAdminImagePreviews();
+      renderAdminBookingsTable();
+      renderAdminServicesTable();
+      renderAdminGalleryList();
+    }
+
+    function switchAdminTab(tabName) {
+      const tabs = ['dashboard', 'bookings', 'services', 'images', 'gallery', 'settings'];
+      tabs.forEach(t => {
+        const el = document.getElementById(`admin-tab-${t}`);
+        const btn = document.getElementById(`tab-btn-${t}`);
+        if (el) el.classList.add('hidden');
+        if (btn) {
+          btn.classList.remove('bg-brand-charcoal', 'text-white', 'active');
+          btn.classList.add('text-stone-600');
+        }
+      });
+
+      const targetEl = document.getElementById(`admin-tab-${tabName}`);
+      const targetBtn = document.getElementById(`tab-btn-${tabName}`);
+      if (targetEl) targetEl.classList.remove('hidden');
+      if (targetBtn) {
+        targetBtn.classList.remove('text-stone-600');
+        targetBtn.classList.add('bg-brand-charcoal', 'text-white', 'active');
+      }
+
+      if (tabName === 'dashboard') updateDashboardMetrics();
+      if (tabName === 'bookings') renderAdminBookingsTable();
+      if (tabName === 'services') renderAdminServicesTable();
+      if (tabName === 'images') renderAdminImagePreviews();
+      if (tabName === 'gallery') renderAdminGalleryList();
+    }
+
+    function updateDashboardMetrics() {
+      const total = state.bookings.length;
+      const pending = state.bookings.filter(b => b.status === 'Pending').length;
+      const confirmed = state.bookings.filter(b => b.status === 'Confirmed').length;
+      const activeServices = state.services.filter(s => s.visible).length;
+
+      document.getElementById('stat-total-bookings').textContent = total;
+      document.getElementById('stat-pending-bookings').textContent = pending;
+      document.getElementById('stat-confirmed-bookings').textContent = confirmed;
+      document.getElementById('stat-active-services').textContent = activeServices;
+      document.getElementById('admin-pending-badge').textContent = pending;
+
+      // Recent 5 bookings
+      const recentTbody = document.getElementById('recent-bookings-tbody');
+      const recent = state.bookings.slice(0, 5);
+      
+      if (recent.length === 0) {
+        recentTbody.innerHTML = `<tr><td colspan="6" class="text-center py-4 text-stone-400">No appointment records yet.</td></tr>`;
+      } else {
+        recentTbody.innerHTML = recent.map(b => `
+          <tr class="hover:bg-stone-50">
+            <td class="py-2.5 px-4 font-mono font-bold text-brand-goldDark">${b.id}</td>
+            <td class="py-2.5 px-4 font-semibold text-stone-800">${b.name}<br><span class="text-[10px] text-stone-400">${b.phone}</span></td>
+            <td class="py-2.5 px-4">${b.service}</td>
+            <td class="py-2.5 px-4">${b.date} <br><span class="text-[10px] text-stone-400">${b.time}</span></td>
+            <td class="py-2.5 px-4">${renderStatusBadge(b.status)}</td>
+            <td class="py-2.5 px-4 text-right">
+              <button onclick="quickUpdateStatus('${b.id}', 'Confirmed')" class="text-[10px] bg-emerald-100 hover:bg-emerald-200 text-emerald-800 px-2 py-0.5 rounded font-medium mr-1">Confirm</button>
+            </td>
+          </tr>
+        `).join('');
+      }
+    }
+
+    function renderStatusBadge(status) {
+      if (status === 'Confirmed') {
+        return `<span class="bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full text-[10px] font-semibold">Confirmed</span>`;
+      } else if (status === 'Completed') {
+        return `<span class="bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full text-[10px] font-semibold">Completed</span>`;
+      } else if (status === 'Cancelled') {
+        return `<span class="bg-rose-100 text-rose-800 px-2 py-0.5 rounded-full text-[10px] font-semibold">Cancelled</span>`;
+      }
+      return `<span class="bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full text-[10px] font-semibold">Pending</span>`;
+    }
+
+    function renderAdminBookingsTable() {
+      const tbody = document.getElementById('all-bookings-tbody');
+      const search = (document.getElementById('booking-search-input')?.value || '').toLowerCase();
+      const statusFilter = document.getElementById('booking-status-filter')?.value || 'ALL';
+
+      const filtered = state.bookings.filter(b => {
+        const matchesStatus = statusFilter === 'ALL' || b.status === statusFilter;
+        const matchesSearch = b.name.toLowerCase().includes(search) || 
+                              b.phone.includes(search) || 
+                              b.id.toLowerCase().includes(search) ||
+                              b.service.toLowerCase().includes(search);
+        return matchesStatus && matchesSearch;
+      });
+
+      if (filtered.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="6" class="text-center py-6 text-stone-400">No appointments found matching your filters.</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = filtered.map(b => {
+        const cleanPhone = b.phone.replace(/\D/g, '');
+        const clientWa = (b.whatsapp || b.phone).replace(/\D/g, '');
+        const waDirectMsg = `Hello ${b.name}, regarding your appointment request ${b.id} for ${b.service} at N N PERFECT BEAUTY...`;
+        
+        return `
+          <tr class="hover:bg-stone-50">
+            <td class="py-3 px-4">
+              <span class="font-mono font-bold text-brand-goldDark">${b.id}</span>
+              <div class="text-[10px] text-stone-400">${b.createdAt}</div>
+            </td>
+            <td class="py-3 px-4">
+              <strong class="text-stone-900">${b.name}</strong>
+              <div class="text-[11px] text-stone-500">${b.phone}</div>
+              ${b.whatsapp ? `<div class="text-[10px] text-emerald-600 flex items-center gap-1"><i class="fa-brands fa-whatsapp"></i> ${b.whatsapp}</div>` : ''}
+              ${b.notes ? `<div class="text-[10px] bg-amber-50 text-amber-800 p-1 rounded mt-1 max-w-xs">Note: ${b.notes}</div>` : ''}
+            </td>
+            <td class="py-3 px-4 font-medium">${b.service}</td>
+            <td class="py-3 px-4">
+              <span class="font-medium text-stone-800">${b.date}</span>
+              <div class="text-[11px] text-stone-500">${b.time}</div>
+            </td>
+            <td class="py-3 px-4">
+              <select onchange="updateBookingStatus('${b.id}', this.value)" class="text-xs border border-stone-200 rounded px-1.5 py-1 bg-white outline-none">
+                <option value="Pending" ${b.status === 'Pending' ? 'selected' : ''}>Pending</option>
+                <option value="Confirmed" ${b.status === 'Confirmed' ? 'selected' : ''}>Confirmed</option>
+                <option value="Completed" ${b.status === 'Completed' ? 'selected' : ''}>Completed</option>
+                <option value="Cancelled" ${b.status === 'Cancelled' ? 'selected' : ''}>Cancelled</option>
+              </select>
+            </td>
+            <td class="py-3 px-4 text-right space-x-1">
+              <a href="tel:${cleanPhone}" title="Call Client" class="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-stone-100 hover:bg-stone-200 text-stone-700">
+                <i class="fa-solid fa-phone text-xs"></i>
+              </a>
+              <a href="https://wa.me/${clientWa}?text=${encodeURIComponent(waDirectMsg)}" target="_blank" title="Chat on WhatsApp" class="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-emerald-100 hover:bg-emerald-200 text-emerald-800">
+                <i class="fa-brands fa-whatsapp text-xs"></i>
+              </a>
+              <button onclick="deleteBookingRecord('${b.id}')" title="Delete" class="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-600">
+                <i class="fa-solid fa-trash text-xs"></i>
+              </button>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function filterAdminBookings() {
+      renderAdminBookingsTable();
+    }
+
+    function updateBookingStatus(id, newStatus) {
+      const b = state.bookings.find(item => item.id === id);
+      if (b) {
+        b.status = newStatus;
+        saveState();
+        updateDashboardMetrics();
+      }
+    }
+
+    function quickUpdateStatus(id, newStatus) {
+      updateBookingStatus(id, newStatus);
+      renderAdminBookingsTable();
+    }
+
+    function deleteBookingRecord(id) {
+      if (window.confirm && !confirm(`Are you sure you want to remove booking record ${id}?`)) {
+        return;
+      }
+      state.bookings = state.bookings.filter(b => b.id !== id);
+      saveState();
+      updateDashboardMetrics();
+      renderAdminBookingsTable();
+    }
+
+    function exportBookingsCSV() {
+      if (state.bookings.length === 0) {
+        alertModal("No bookings available to export.");
+        return;
+      }
+      const headers = ["ID", "Name", "Phone", "WhatsApp", "Service", "Date", "Time", "Status", "Notes", "Created"];
+      const rows = state.bookings.map(b => [
+        b.id,
+        `"${b.name.replace(/"/g, '""')}"`,
+        `"${b.phone}"`,
+        `"${b.whatsapp || ''}"`,
+        `"${b.service.replace(/"/g, '""')}"`,
+        b.date,
+        b.time,
+        b.status,
+        `"${(b.notes || '').replace(/"/g, '""')}"`,
+        b.createdAt
+      ]);
+      const csvContent = "data:text/csv;charset=utf-8," + [headers.join(','), ...rows.map(e => e.join(','))].join('\n');
+      const encodedUri = encodeURI(csvContent);
+      const link = document.createElement("a");
+      link.setAttribute("href", encodedUri);
+      link.setAttribute("download", `NN_Perfect_Beauty_Bookings_${new Date().toISOString().slice(0,10)}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    function renderAdminServicesTable() {
+      const tbody = document.getElementById('admin-services-tbody');
+      tbody.innerHTML = state.services.map(s => `
+        <tr class="hover:bg-stone-50">
+          <td class="py-2.5 px-4">
+            <img src="${s.image}" alt="${s.name}" class="w-10 h-10 object-cover rounded-lg">
+          </td>
+          <td class="py-2.5 px-4 font-semibold text-stone-900">${s.name}</td>
+          <td class="py-2.5 px-4"><span class="bg-stone-100 text-stone-700 px-2 py-0.5 rounded text-[10px]">${s.category}</span></td>
+          <td class="py-2.5 px-4 font-bold text-brand-goldDark">${s.price}</td>
+          <td class="py-2.5 px-4 text-stone-500">${s.duration || '-'}</td>
+          <td class="py-2.5 px-4">
+            ${s.featured ? '<span class="text-amber-600 font-bold text-[10px]">Yes</span>' : '<span class="text-stone-400 text-[10px]">No</span>'}
+          </td>
+          <td class="py-2.5 px-4 text-right space-x-1">
+            <button onclick="openServiceEditModal('${s.id}')" class="px-2 py-1 rounded bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs">
+              <i class="fa-solid fa-pen-to-square"></i>
+            </button>
+            <button onclick="toggleServiceVisibility('${s.id}')" class="px-2 py-1 rounded ${s.visible ? 'bg-emerald-50 text-emerald-700' : 'bg-stone-200 text-stone-500'} text-xs" title="Toggle Visibility">
+              <i class="fa-solid ${s.visible ? 'fa-eye' : 'fa-eye-slash'}"></i>
+            </button>
+            <button onclick="deleteService('${s.id}')" class="px-2 py-1 rounded bg-rose-50 hover:bg-rose-100 text-rose-600 text-xs">
+              <i class="fa-solid fa-trash"></i>
+            </button>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    function openServiceEditModal(serviceId) {
+      const modal = document.getElementById('service-edit-modal');
+      const title = document.getElementById('service-modal-title');
+      
+      if (serviceId) {
+        const s = state.services.find(item => item.id === serviceId);
+        if (!s) return;
+        title.textContent = "Edit Service";
+        document.getElementById('service-edit-id').value = s.id;
+        document.getElementById('service-edit-name').value = s.name;
+        document.getElementById('service-edit-category').value = s.category;
+        document.getElementById('service-edit-price').value = s.price;
+        document.getElementById('service-edit-duration').value = s.duration || '';
+        document.getElementById('service-edit-featured').value = s.featured ? "true" : "false";
+        document.getElementById('service-edit-image').value = s.image;
+        document.getElementById('service-edit-desc').value = s.description;
+      } else {
+        title.textContent = "Add New Service";
+        document.getElementById('service-edit-id').value = '';
+        document.getElementById('service-edit-name').value = '';
+        document.getElementById('service-edit-category').value = 'Hair';
+        document.getElementById('service-edit-price').value = '$';
+        document.getElementById('service-edit-duration').value = '60 min';
+        document.getElementById('service-edit-featured').value = 'false';
+        document.getElementById('service-edit-image').value = 'https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=700&q=80';
+        document.getElementById('service-edit-desc').value = '';
+      }
+
+      modal.classList.add('modal-active');
+    }
+
+    function closeServiceEditModal() {
+      document.getElementById('service-edit-modal').classList.remove('modal-active');
+    }
+
+    function handleServiceImageUpload(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        document.getElementById('service-edit-image').value = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function handleSaveServiceForm(e) {
+      e.preventDefault();
+      const id = document.getElementById('service-edit-id').value;
+      const name = document.getElementById('service-edit-name').value.trim();
+      const category = document.getElementById('service-edit-category').value;
+      const price = document.getElementById('service-edit-price').value.trim();
+      const duration = document.getElementById('service-edit-duration').value.trim();
+      const featured = document.getElementById('service-edit-featured').value === 'true';
+      const image = document.getElementById('service-edit-image').value.trim() || 'https://placehold.co/600x400/FAF8F5/C5A059?text=Service';
+      const description = document.getElementById('service-edit-desc').value.trim();
+
+      if (id) {
+        // Edit existing
+        const index = state.services.findIndex(s => s.id === id);
+        if (index !== -1) {
+          state.services[index] = {
+            ...state.services[index],
+            name, category, price, duration, featured, image, description
+          };
+        }
+      } else {
+        // Create new
+        const newService = {
+          id: 'srv-' + (Date.now()),
+          name, category, price, duration, featured, image, description,
+          visible: true,
+          badge: featured ? 'Featured' : ''
+        };
+        state.services.push(newService);
+      }
+
+      saveState();
+      closeServiceEditModal();
+      renderAdminServicesTable();
+      renderServicesGrid();
+      renderFeaturedOffersGrid();
+      populateBookingServiceDropdown();
+      updateDashboardMetrics();
+    }
+
+    function toggleServiceVisibility(id) {
+      const s = state.services.find(item => item.id === id);
+      if (s) {
+        s.visible = !s.visible;
+        saveState();
+        renderAdminServicesTable();
+        renderServicesGrid();
+        renderFeaturedOffersGrid();
+        populateBookingServiceDropdown();
+      }
+    }
+
+    function deleteService(id) {
+      if (window.confirm && !confirm("Delete this service from the salon catalog?")) return;
+      state.services = state.services.filter(s => s.id !== id);
+      saveState();
+      renderAdminServicesTable();
+      renderServicesGrid();
+      renderFeaturedOffersGrid();
+      populateBookingServiceDropdown();
+      updateDashboardMetrics();
+    }
+
+    function renderAdminImagePreviews() {
+      document.getElementById('admin-preview-hero').src = state.settings.heroImageUrl;
+      document.getElementById('admin-preview-about').src = state.settings.aboutImageUrl;
+      document.getElementById('admin-preview-logo').src = state.settings.logoUrl;
+    }
+
+    function openImageReplacerModal(slotType) {
+      state.activeReplacerSlot = slotType;
+      state.tempImageBase64 = null;
+      
+      const modal = document.getElementById('image-replacer-modal');
+      const title = document.getElementById('replacer-modal-title');
+      const preview = document.getElementById('replacer-preview-target');
+      const urlInput = document.getElementById('replacer-url-input');
+      const altInput = document.getElementById('replacer-alt-input');
+      const fileInput = document.getElementById('replacer-file-input');
+      
+      fileInput.value = '';
+      
+      let currentUrl = '';
+      if (slotType === 'hero') {
+        title.textContent = "Replace Hero Banner Image";
+        currentUrl = state.settings.heroImageUrl;
+        altInput.value = "N N Perfect Beauty Salon Atmosphere";
+      } else if (slotType === 'about') {
+        title.textContent = "Replace About Us Story Photo";
+        currentUrl = state.settings.aboutImageUrl;
+        altInput.value = "Salon Interior and Styling Stations";
+      } else if (slotType === 'logo') {
+        title.textContent = "Replace Brand Logo / Emblem";
+        currentUrl = state.settings.logoUrl;
+        altInput.value = "N N Perfect Beauty Brand Logo";
+      }
+
+      preview.src = currentUrl;
+      urlInput.value = currentUrl;
+      modal.classList.add('modal-active');
+    }
+
+    function closeImageReplacerModal() {
+      document.getElementById('image-replacer-modal').classList.remove('modal-active');
+      state.activeReplacerSlot = null;
+      state.tempImageBase64 = null;
+    }
+
+    function handleImageFileSelected(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      if (!file.type.startsWith('image/')) {
+        alertModal("Please select a valid image file (PNG, JPG, WEBP).");
+        return;
+      }
+
+      if (file.size > 5 * 1024 * 1024) {
+        alertModal("File size exceeds 5MB. Please choose a web-optimized image.");
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        state.tempImageBase64 = e.target.result;
+        document.getElementById('replacer-preview-target').src = e.target.result;
+        document.getElementById('replacer-url-input').value = ''; // clear url input to prioritize file
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function handleImageUrlInput(url) {
+      if (url && url.startsWith('http')) {
+        state.tempImageBase64 = null;
+        document.getElementById('replacer-preview-target').src = url;
+      }
+    }
+
+    function applyImageReplacement() {
+      const urlInput = document.getElementById('replacer-url-input').value.trim();
+      const finalImage = state.tempImageBase64 || urlInput;
+
+      if (!finalImage) {
+        alertModal("Please upload an image file or provide a valid image URL.");
+        return;
+      }
+
+      const slot = state.activeReplacerSlot;
+      if (slot === 'hero') {
+        state.settings.heroImageUrl = finalImage;
+      } else if (slot === 'about') {
+        state.settings.aboutImageUrl = finalImage;
+      } else if (slot === 'logo') {
+        state.settings.logoUrl = finalImage;
+      }
+
+      saveState();
+      renderAllStorefrontContent();
+      renderAdminImagePreviews();
+      closeImageReplacerModal();
+    }
+
+    function renderAdminGalleryList() {
+      const container = document.getElementById('admin-gallery-list');
+      container.innerHTML = state.gallery.map(item => `
+        <div class="border border-stone-200 rounded-xl overflow-hidden bg-stone-50/50 p-2 flex gap-3 items-center">
+          <img src="${item.imageUrl}" alt="${item.caption}" class="w-16 h-16 object-cover rounded-lg flex-shrink-0">
+          <div class="flex-1 min-w-0">
+            <span class="text-[10px] bg-brand-gold/20 text-brand-goldDark px-1.5 py-0.5 rounded font-medium">${item.category}</span>
+            <p class="text-xs font-semibold text-stone-800 truncate mt-1">${item.caption}</p>
+          </div>
+          <button onclick="deleteGalleryItem('${item.id}')" class="p-2 text-rose-600 hover:bg-rose-50 rounded-lg">
+            <i class="fa-solid fa-trash text-xs"></i>
+          </button>
+        </div>
+      `).join('');
+    }
+
+    function openGalleryAddModal() {
+      document.getElementById('gallery-add-modal').classList.add('modal-active');
+      document.getElementById('gallery-add-caption').value = '';
+      document.getElementById('gallery-add-image').value = '';
+    }
+
+    function closeGalleryAddModal() {
+      document.getElementById('gallery-add-modal').classList.remove('modal-active');
+    }
+
+    function handleGalleryImageUpload(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        document.getElementById('gallery-add-image').value = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function handleSaveGalleryItem(e) {
+      e.preventDefault();
+      const caption = document.getElementById('gallery-add-caption').value.trim();
+      const category = document.getElementById('gallery-add-category').value;
+      const imageUrl = document.getElementById('gallery-add-image').value.trim();
+
+      if (!caption || !imageUrl) return;
+
+      state.gallery.unshift({
+        id: 'gal-' + Date.now(),
+        caption,
+        category,
+        imageUrl
+      });
+
+      saveState();
+      closeGalleryAddModal();
+      renderGalleryGrid();
+      renderAdminGalleryList();
+    }
+
+    function deleteGalleryItem(id) {
+      state.gallery = state.gallery.filter(g => g.id !== id);
+      saveState();
+      renderGalleryGrid();
+      renderAdminGalleryList();
+    }
+
+    function populateAdminSettingsForm() {
+      const s = state.settings;
+      document.getElementById('setting-brand-name').value = s.brandName;
+      document.getElementById('setting-phone').value = s.phone;
+      document.getElementById('setting-whatsapp').value = s.whatsapp;
+      document.getElementById('setting-email').value = s.email;
+      document.getElementById('setting-address').value = s.address;
+      document.getElementById('setting-hours-weekday').value = s.hoursWeekday;
+      document.getElementById('setting-hours-weekend').value = s.hoursWeekend;
+      document.getElementById('setting-hero-headline').value = s.heroHeadline;
+      document.getElementById('setting-hero-subtext').value = s.heroSubtext;
+      document.getElementById('setting-about-text').value = s.aboutStory;
+    }
+
+    function handleSaveSettings(e) {
+      e.preventDefault();
+      state.settings.brandName = document.getElementById('setting-brand-name').value.trim();
+      state.settings.phone = document.getElementById('setting-phone').value.trim();
+      state.settings.whatsapp = document.getElementById('setting-whatsapp').value.trim();
+      state.settings.email = document.getElementById('setting-email').value.trim();
+      state.settings.address = document.getElementById('setting-address').value.trim();
+      state.settings.hoursWeekday = document.getElementById('setting-hours-weekday').value.trim();
+      state.settings.hoursWeekend = document.getElementById('setting-hours-weekend').value.trim();
+      state.settings.heroHeadline = document.getElementById('setting-hero-headline').value.trim();
+      state.settings.heroSubtext = document.getElementById('setting-hero-subtext').value.trim();
+      state.settings.aboutStory = document.getElementById('setting-about-text').value.trim();
+
+      saveState();
+      renderAllStorefrontContent();
+      alertModal("Website profile, contact, and hours updated successfully!");
+    }
+
+    function toggleMobileMenu() {
+      const drawer = document.getElementById('mobile-menu-drawer');
+      drawer.classList.toggle('hidden');
+    }
+
+    function openPolicyModal(type) {
+      const modal = document.getElementById('policy-modal');
+      const title = document.getElementById('policy-modal-title');
+      const body = document.getElementById('policy-modal-content');
+
+      if (type === 'privacy') {
+        title.textContent = "Privacy Policy";
+        body.innerHTML = `
+          <p><strong>N N PERFECT BEAUTY</strong> respects your personal privacy. When booking an appointment through our website or communicating with our team, we collect only the necessary details (such as your name, phone number, and appointment requests) to confirm and personalize your salon experience.</p>
+          <p>We do not sell, rent, or distribute your private contact details to external marketing agencies. All records are maintained securely in our booking registry.</p>
+          <p>For questions or data deletion requests, contact our salon manager directly at ${state.settings.email}.</p>
+        `;
+      } else {
+        title.textContent = "Terms of Service";
+        body.innerHTML = `
+          <p><strong>Appointments & Confirmations:</strong> Submitting a booking request reserves your slot subject to scheduling availability. Our concierge will confirm your exact appointment via phone or WhatsApp.</p>
+          <p><strong>Cancellation Courtesy:</strong> We appreciate at least 24 hours advance notification for cancellations or rescheduling to allow other clients on our waitlist to be accommodated.</p>
+          <p><strong>Health & Sensitivities:</strong> Please advise your aesthetician or stylist of any known chemical allergies, sensitive skin, or pregnancy before beginning hair color or intensive facial treatments.</p>
+        `;
+      }
+      modal.classList.add('modal-active');
+    }
+
+    function closePolicyModal() {
+      document.getElementById('policy-modal').classList.remove('modal-active');
+    }
+
+    function alertModal(message) {
+      // Clean accessible non-native message box
+      const existing = document.getElementById('custom-toast-notification');
+      if (existing) existing.remove();
+
+      const toast = document.createElement('div');
+      toast.id = 'custom-toast-notification';
+      toast.className = 'fixed bottom-8 left-1/2 -translate-x-1/2 z-50 bg-brand-charcoal text-white text-xs px-6 py-3.5 rounded-full shadow-2xl border border-brand-gold/40 flex items-center gap-3 animate-fade-in';
+      toast.innerHTML = `
+        <i class="fa-solid fa-bell text-brand-champagne"></i>
+        <span>${message}</span>
+        <button onclick="this.parentElement.remove()" class="text-stone-400 hover:text-white ml-2"><i class="fa-solid fa-xmark"></i></button>
+      `;
+      document.body.appendChild(toast);
+      setTimeout(() => { if (toast) toast.remove(); }, 4000);
+    }
+  </script>
+
+</body>
+</html>
