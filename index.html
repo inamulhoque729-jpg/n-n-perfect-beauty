@@ -2764,6 +2764,20 @@
       setTimeout(() => { if (toast) toast.remove(); }, 4000);
     }
   </script>
+  <!-- Supabase -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+  const SUPABASE_URL = "https://ehtdurnqwejtiwdbmcsq.supabase.co";
+  const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_fdIaZb1UvpJRLiAHjyH9XA_ildinGcG";
+
+  const supabaseClient = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_PUBLISHABLE_KEY
+  );
+
+  console.log("N N Perfect Beauty — Supabase connected");
+</script>
 
 </body>
 </html>
